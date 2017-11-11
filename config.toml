@@ -1,4 +1,4 @@
-baseURL = "http://cultofmetatron.io"
+baseURL = "https://cultofmetatron.github.io/cultofmetatron.io/"
 languageCode = "en-us"
 title = "IO.blog"
 theme = "hugo-eltopo"

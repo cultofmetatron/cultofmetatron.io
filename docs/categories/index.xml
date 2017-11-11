@@ -2,93 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on IO.blog</title>
-    <link>http://cultofmetatron.io/categories/</link>
+    <link>https://cultofmetatron.github.io/cultofmetatron.io/categories/</link>
     <description>Recent content in Categories on IO.blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Mar 2017 14:21:05 -0500</lastBuildDate>
     
-	<atom:link href="http://cultofmetatron.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cultofmetatron.github.io/cultofmetatron.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Blockchains</title>
-      <link>http://cultofmetatron.io/categories/blockchains/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/categories/blockchains/</link>
       <pubDate>Tue, 07 Mar 2017 14:21:05 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/categories/blockchains/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/categories/blockchains/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cryptocurrency</title>
-      <link>http://cultofmetatron.io/categories/cryptocurrency/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/categories/cryptocurrency/</link>
       <pubDate>Tue, 07 Mar 2017 14:21:05 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/categories/cryptocurrency/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/categories/cryptocurrency/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Development</title>
-      <link>http://cultofmetatron.io/categories/development/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/categories/development/</link>
       <pubDate>Sat, 22 Apr 2017 17:02:46 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/categories/development/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/categories/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Elixir</title>
-      <link>http://cultofmetatron.io/categories/elixir/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/categories/elixir/</link>
       <pubDate>Sat, 22 Apr 2017 17:02:46 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/categories/elixir/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/categories/elixir/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>http://cultofmetatron.io/categories/golang/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/categories/golang/</link>
       <pubDate>Fri, 24 Mar 2017 11:34:11 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/categories/golang/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/categories/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>http://cultofmetatron.io/categories/javascript/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/categories/javascript/</link>
       <pubDate>Mon, 02 May 2016 00:11:43 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/categories/javascript/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/categories/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Phoenix</title>
-      <link>http://cultofmetatron.io/categories/phoenix/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/categories/phoenix/</link>
       <pubDate>Sat, 22 Apr 2017 17:02:46 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/categories/phoenix/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/categories/phoenix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rust</title>
-      <link>http://cultofmetatron.io/categories/rust/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/categories/rust/</link>
       <pubDate>Tue, 21 Mar 2017 12:33:04 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/categories/rust/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/categories/rust/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rxjs</title>
-      <link>http://cultofmetatron.io/categories/rxjs/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/categories/rxjs/</link>
       <pubDate>Wed, 02 Mar 2016 00:06:38 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/categories/rxjs/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/categories/rxjs/</guid>
       <description></description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on IO.blog</title>
-    <link>http://cultofmetatron.io/post/</link>
+    <link>https://cultofmetatron.github.io/cultofmetatron.io/post/</link>
     <description>Recent content in Posts on IO.blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 22 Apr 2017 17:02:46 -0400</lastBuildDate>
     
-	<atom:link href="http://cultofmetatron.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cultofmetatron.github.io/cultofmetatron.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Thinking in Ecto - schemas and changesets</title>
-      <link>http://cultofmetatron.io/post/thinking-in-ecto-p1/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/thinking-in-ecto-p1/</link>
       <pubDate>Sat, 22 Apr 2017 17:02:46 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/post/thinking-in-ecto-p1/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/thinking-in-ecto-p1/</guid>
       <description>Note: I&amp;rsquo;m basing much of this code paths on the new phoenix 1.3 RC1.
  I started writing elixir 6 months ago and it&amp;rsquo;s been pure love. Ecto specifically, makes developing saas applications a real joy.
 Ecto is the database abstraction layer for elixir and comes baked into phoenix. Unlike an ORM like activerecord or rails, ecto provides a set of macros that expose a dsl layer for operating on your database similar to .</description>
@@ -24,30 +24,30 @@ Ecto is the database abstraction layer for elixir and comes baked into phoenix. 
     
     <item>
       <title>learning rust with blackjack p2</title>
-      <link>http://cultofmetatron.io/post/learning-rust-with-blackjack-p2/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/learning-rust-with-blackjack-p2/</link>
       <pubDate>Fri, 24 Mar 2017 11:34:11 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/post/learning-rust-with-blackjack-p2/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/learning-rust-with-blackjack-p2/</guid>
       <description>I realize I&amp;rsquo;ve grown soft relying on garbage collection and rust is a harsh but fair taskmaster. Its been 4 days since I picked up rust and I&amp;rsquo;m finally starting to get the hang of the borrow checker. Learning rust is a very different experience than learning c++. A tight feedback loop is essential to the learning process.
 As I continue to build this blackjack, I find that the compiler picks up issues that would lead to segfaults when I learned c.</description>
     </item>
     
     <item>
       <title>Learning Rust With Blackjack Part 1</title>
-      <link>http://cultofmetatron.io/post/learning-rust-with-blackjack-p1/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/learning-rust-with-blackjack-p1/</link>
       <pubDate>Tue, 21 Mar 2017 12:33:04 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/post/learning-rust-with-blackjack-p1/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/learning-rust-with-blackjack-p1/</guid>
       <description>I never got very far with c. I was still a noob at programming and constant segaults with no feedback plagued my path to success. I ultimately moved on to ruby and eventually javascript and elixir. C is honest and close to the metal and systems program has been on my list of things to get back into.
 My two primary languages these days are javscript and elixir. This leaves my repertoire of skills with a hole in systems programming.</description>
     </item>
     
     <item>
       <title>Better living through blockchains - Finance</title>
-      <link>http://cultofmetatron.io/post/better-living-through-blockchains-p2/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/better-living-through-blockchains-p2/</link>
       <pubDate>Tue, 07 Mar 2017 20:09:15 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/better-living-through-blockchains-p2/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/better-living-through-blockchains-p2/</guid>
       <description>&lt;p&gt;Most people looking at &lt;a href=&#34;https://www.ethereum.org/&#34;&gt;Etheream&lt;/a&gt; see only the altcoin which you can now purchase on &lt;a href=&#34;https://www.coinbase.com/&#34;&gt;coinbase&lt;/a&gt;.
 Its so much more than that.
 As I mentioned earlier, Bitcoin&amp;rsquo;s ruleset for registering transactions is a simple stack based instruction set only supporting a transfer of assets.
@@ -63,10 +63,10 @@ The main benefit is in removing the need of a centralized trusted arbiter.&lt;/p
     
     <item>
       <title>Better living through blockchains - Intro</title>
-      <link>http://cultofmetatron.io/post/better-living-through-blockchains-p1/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/better-living-through-blockchains-p1/</link>
       <pubDate>Tue, 07 Mar 2017 14:21:05 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/better-living-through-blockchains-p1/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/better-living-through-blockchains-p1/</guid>
       <description>&lt;p&gt;2 years ago, I bought 10 bitcoins at $134 each.
 A week later they shot up to $240.
 Naivly I flipped them and made a tidy thousand dollar profit.
@@ -83,10 +83,10 @@ Bitcoin&amp;rsquo;s blockchain is limited in features and is oriented towards cr
     
     <item>
       <title>Auth0 on Phoenix Ueberauth</title>
-      <link>http://cultofmetatron.io/post/auth0-on-phoenix-p2-ueberauth/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/auth0-on-phoenix-p2-ueberauth/</link>
       <pubDate>Mon, 06 Mar 2017 21:21:25 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/auth0-on-phoenix-p2-ueberauth/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/auth0-on-phoenix-p2-ueberauth/</guid>
       <description>&lt;p&gt;Previously I covered how to install auth0 on your browser.
 There are limitations to a client based approach.
 For one, you are limited strictly to jwt login. Furthermore,
@@ -100,30 +100,30 @@ the oauth redirect to go through your phoenix server.&lt;/p&gt;
     
     <item>
       <title>Project Level go environment with direnv</title>
-      <link>http://cultofmetatron.io/post/project_level_go_environment_with_direnv/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/project_level_go_environment_with_direnv/</link>
       <pubDate>Sat, 04 Mar 2017 16:10:53 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/project_level_go_environment_with_direnv/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/project_level_go_environment_with_direnv/</guid>
       <description>I had a spare weekend to start goin through Writing An Interpreter In Go. I came into it knowing zero go and was running into the this error.
  warning: GOPATH set to GOROOT (/Users/cultofmetatron/projects/waiig_code_1.3/01/src/monkey) has no effect lexer/lexer.go:3:8: cannot find package &amp;quot;monkey/token&amp;quot; in any of: /Users/cultofmetatron/projects/waiig_code_1.3/01/src/monkey/src/monkey/token (from $GOROOT) ($GOPATH not set. For more details see: &#39;go help gopath&#39;) package ./lexer imports runtime: cannot find package &amp;quot;runtime&amp;quot; in any of: /Users/cultofmetatron/projects/waiig_code_1.</description>
     </item>
     
     <item>
       <title>Auth0 on Phoenix - Basic Configuration</title>
-      <link>http://cultofmetatron.io/post/auth0-on-phoenix-p1/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/auth0-on-phoenix-p1/</link>
       <pubDate>Wed, 01 Mar 2017 00:19:51 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/auth0-on-phoenix-p1/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/auth0-on-phoenix-p1/</guid>
       <description>&lt;p&gt;Today I&amp;rsquo;m documenting the process of setting up &lt;a href=&#34;https://auth0.com/&#34;&gt;Auth0&lt;/a&gt; and &lt;a href=&#34;https://webpack.js.org/&#34;&gt;webpack2&lt;/a&gt; on a newly created &lt;a href=&#34;http://www.phoenixframework.org/&#34;&gt;Phoenix&lt;/a&gt; project
 &lt;/p&gt;</description>
     </item>
     
     <item>
       <title>10 reasons you should bet on elixir for your next startup</title>
-      <link>http://cultofmetatron.io/post/10-reasons-you-should-bet-on-elixir/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/10-reasons-you-should-bet-on-elixir/</link>
       <pubDate>Mon, 02 Jan 2017 00:18:23 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/10-reasons-you-should-bet-on-elixir/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/10-reasons-you-should-bet-on-elixir/</guid>
       <description>&lt;p&gt;Everything we touch on a computer is just 1&amp;rsquo;s and 0&amp;rsquo;s. Yet, its easy to forget that with all the libraries we have to abstract away the innate complexity of the myriad of protocols that form the backbone of the internet.
 
 Elixir itself has really nice built in primatives for dealing with binary streams. Before I go into that, lets cover some background.&lt;/p&gt;</description>
@@ -131,10 +131,10 @@ Elixir itself has really nice built in primatives for dealing with binary stream
     
     <item>
       <title>Elixir first impressions</title>
-      <link>http://cultofmetatron.io/post/elixir-first-impressions/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/elixir-first-impressions/</link>
       <pubDate>Mon, 02 Jan 2017 00:13:42 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/elixir-first-impressions/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/elixir-first-impressions/</guid>
       <description>&lt;nav&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -165,10 +165,10 @@ Elixir is a langugae that runs on top of the Erlang VM. While still young for a 
     
     <item>
       <title>concurrency by message passing in elixir</title>
-      <link>http://cultofmetatron.io/post/concurrency-by-message-passing-in-elixir/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/concurrency-by-message-passing-in-elixir/</link>
       <pubDate>Fri, 02 Dec 2016 00:15:41 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/concurrency-by-message-passing-in-elixir/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/concurrency-by-message-passing-in-elixir/</guid>
       <description>&lt;p&gt;In my last post, I talked about Elixir&amp;rsquo;s core syntax. While I love the brevity and pure functional style favored in elixir, I didn&amp;rsquo;t even touch on it primary value added proposition.
 
 Elixir is really a process oriented programming langauge.&lt;/p&gt;</description>
@@ -176,10 +176,10 @@ Elixir is really a process oriented programming langauge.&lt;/p&gt;</description
     
     <item>
       <title>one wierd trick to improving your javascript</title>
-      <link>http://cultofmetatron.io/post/one-wierd-trick-to-improving-your-javascript/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/one-wierd-trick-to-improving-your-javascript/</link>
       <pubDate>Mon, 02 May 2016 00:11:43 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/one-wierd-trick-to-improving-your-javascript/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/one-wierd-trick-to-improving-your-javascript/</guid>
       <description>&lt;p&gt;As the complexity of the projects I tackle as an engineer have increased over the years. I&amp;rsquo;ve noticed that while my capacity to understand project scope have increased linearly, The problems that I&amp;rsquo;ve had to deal with have increased exponentially in difficulty. The human mind can only hold so much complexity at a time. To rise to the needs of being a software engineer in the 21&amp;rsquo;st century, it takes a healthy dose of humilty to recognize my weaknesses and develop a methodology to handle the complexity.
 
 Without further ado, I introduce one of the most powerful axioms you can adopt in your own code. The extra thinking reqiuired might increase the time it takes to write the code. However, that will be more than paid back in the ability to read your own code and debug it later on.&lt;/p&gt;</description>
@@ -187,10 +187,10 @@ Without further ado, I introduce one of the most powerful axioms you can adopt i
     
     <item>
       <title>my reaction to reactive extensions</title>
-      <link>http://cultofmetatron.io/post/my-reaction-to-reactive-extensions/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/my-reaction-to-reactive-extensions/</link>
       <pubDate>Sat, 02 Apr 2016 00:09:41 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/my-reaction-to-reactive-extensions/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/my-reaction-to-reactive-extensions/</guid>
       <description>&lt;p&gt;Every javascript programmer is on their own hero&amp;rsquo;s journey to mastery.&lt;/p&gt;
 
 &lt;p&gt;It begins with the basic language. Before you know it, You run into the initially paradoxic behavior of asynchronous programming. Trying to chain diffrent asynchronous functions results in nested callbacks. We all get to a point we&amp;rsquo;ve written a program and found ourselves entombed in our own Pyramid of Doom.&lt;/p&gt;</description>
@@ -198,10 +198,10 @@ Without further ado, I introduce one of the most powerful axioms you can adopt i
     
     <item>
       <title>binary streams in elixr</title>
-      <link>http://cultofmetatron.io/post/binary-streams-in-elixr/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/binary-streams-in-elixr/</link>
       <pubDate>Wed, 02 Mar 2016 00:16:51 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/binary-streams-in-elixr/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/binary-streams-in-elixr/</guid>
       <description>&lt;p&gt;Everything we touch on a computer is just 1&amp;rsquo;s and 0&amp;rsquo;s. Yet, its easy to forget that with all the libraries we have to abstract away the innate complexity of the myriad of protocols that form the backbone of the internet.
 
 Elixir itself has really nice built in primatives for dealing with binary streams. Before I go into that, lets cover some background.&lt;/p&gt;</description>
@@ -209,10 +209,10 @@ Elixir itself has really nice built in primatives for dealing with binary stream
     
     <item>
       <title>the point of promises</title>
-      <link>http://cultofmetatron.io/post/the-point-of-promises/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/post/the-point-of-promises/</link>
       <pubDate>Wed, 02 Mar 2016 00:06:38 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/post/the-point-of-promises/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/post/the-point-of-promises/</guid>
       <description>&lt;p&gt;You&amp;rsquo;ve learned the basics of javascript. Hell, I dare say you&amp;rsquo;ve probably squeezed out a first project. I&amp;rsquo;m willing to bet that for most of you, the idea of asynchronous code still seems like magic.&lt;/p&gt;
 
 &lt;p&gt;True enough, javascript&amp;rsquo;s event loop model of execution is strange and fantastical when you are first learning it and downright aggravating when you suddenly realize that you have a list of filenames. You need to load them all up and run another function with the contents of each respective file.&lt;/p&gt;

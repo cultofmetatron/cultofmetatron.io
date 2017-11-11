@@ -2,93 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on IO.blog</title>
-    <link>http://cultofmetatron.io/tags/</link>
+    <link>https://cultofmetatron.github.io/cultofmetatron.io/tags/</link>
     <description>Recent content in Tags on IO.blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Mar 2017 14:21:05 -0500</lastBuildDate>
     
-	<atom:link href="http://cultofmetatron.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://cultofmetatron.github.io/cultofmetatron.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Bitcoin</title>
-      <link>http://cultofmetatron.io/tags/bitcoin/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/tags/bitcoin/</link>
       <pubDate>Tue, 07 Mar 2017 14:21:05 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/tags/bitcoin/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/tags/bitcoin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Blockchain</title>
-      <link>http://cultofmetatron.io/tags/blockchain/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/tags/blockchain/</link>
       <pubDate>Tue, 07 Mar 2017 14:21:05 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/tags/blockchain/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/tags/blockchain/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cryptocurrency</title>
-      <link>http://cultofmetatron.io/tags/cryptocurrency/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/tags/cryptocurrency/</link>
       <pubDate>Tue, 07 Mar 2017 14:21:05 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/tags/cryptocurrency/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/tags/cryptocurrency/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Development</title>
-      <link>http://cultofmetatron.io/tags/development/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/tags/development/</link>
       <pubDate>Sat, 22 Apr 2017 17:02:46 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/tags/development/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Elixir</title>
-      <link>http://cultofmetatron.io/tags/elixir/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/tags/elixir/</link>
       <pubDate>Sat, 22 Apr 2017 17:02:46 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/tags/elixir/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/tags/elixir/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Etheream</title>
-      <link>http://cultofmetatron.io/tags/etheream/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/tags/etheream/</link>
       <pubDate>Tue, 07 Mar 2017 14:21:05 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/tags/etheream/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/tags/etheream/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Golang</title>
-      <link>http://cultofmetatron.io/tags/golang/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/tags/golang/</link>
       <pubDate>Fri, 24 Mar 2017 11:34:11 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/tags/golang/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>http://cultofmetatron.io/tags/javascript/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/tags/javascript/</link>
       <pubDate>Mon, 02 May 2016 00:11:43 -0500</pubDate>
       
-      <guid>http://cultofmetatron.io/tags/javascript/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Rust</title>
-      <link>http://cultofmetatron.io/tags/rust/</link>
+      <link>https://cultofmetatron.github.io/cultofmetatron.io/tags/rust/</link>
       <pubDate>Tue, 21 Mar 2017 12:33:04 -0400</pubDate>
       
-      <guid>http://cultofmetatron.io/tags/rust/</guid>
+      <guid>https://cultofmetatron.github.io/cultofmetatron.io/tags/rust/</guid>
       <description></description>
     </item>
     
