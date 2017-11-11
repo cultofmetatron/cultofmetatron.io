@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>learning rust with blackjack p2</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="" />
+  <meta name="description" content="I realize I&amp;rsquo;ve grown soft relying on garbage collection and rust is a harsh but fair taskmaster. Its been 4 days since I picked up rust and I&amp;rsquo;m finally starting to get the hang of the borrow checker. Learning rust is a very different experience than learning c&#43;&#43;. A tight feedback loop is essential to the learning process.
+As I continue to build this blackjack, I find that the compiler picks up issues that would lead to segfaults when I learned c." />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="learning rust with blackjack p2" />
+    <meta name="twitter:description" content="I realize I&amp;rsquo;ve grown soft relying on garbage collection and rust is a harsh but fair taskmaster. Its been 4 days since I picked up rust and I&amp;rsquo;m finally starting to get the hang of the borrow checker. Learning rust is a very different experience than learning c&#43;&#43;. A tight feedback loop is essential to the learning process.
+As I continue to build this blackjack, I find that the compiler picks up issues that would lead to segfaults when I learned c." />
+    <meta name="twitter:image" content="http://cultofmetatron.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://cultofmetatron.io/post/learning-rust-with-blackjack-p2/" />
+<link rel="alternative" href="/index.xml" title="IO.blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="IO.blog" />
+<meta name="msapplication-tooltip" content="IO.blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+    
+    
+    <h2 class="title"><a href="/">IO.blog</a></h2>
+    
+    <p class="subtitle"></p>
+    <button class="menu-toggle" type="button">
+      <span class="icon icon-menu"></span>
+    </button>
+    <nav class="site-menu collapsed">
+      <h2 class="offscreen">Main Menu</h2>
+      <ul class="menu-list">
+        
+        
+        <li class="menu-item" ><a href="/post">Posts</a></li>
+        
+        
+          <li class="menu-item "><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="social-menu collapsed">
+      <h2 class="offscreen">Social Networks</h2>
+      <ul class="social-list">
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        <li class="social-item">
+          <a href="/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+        </li>
+  
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">learning rust with blackjack p2</h1>
+      <p class="post-meta">@ · Mar 24, 2017 · 2 min read</p>
+    </header>
+    <article class="post-content"><p>I realize I&rsquo;ve grown soft relying on garbage collection and rust is a harsh but fair taskmaster.
+Its been 4 days since I picked up rust and I&rsquo;m finally starting to get the hang of the borrow checker.
+Learning rust is a very different experience than learning c++.
+A tight feedback loop is essential to the learning process.</p>
+
+<p>As I continue to build this blackjack, I find that the compiler picks up issues that would lead to segfaults when I learned c.
+One mechanism I&rsquo;ve discovered is the <code>clonable</code> trait.
+Lets say you have struct with a property set to another struct.
+Rust can deep clone the entire object provided the struct and all subcomponents of the struct implement clonable.</p>
+
+<p>I still don&rsquo;t quite understand the pragma yet but I&rsquo;ve found it requires some annotations to the enums and structs.</p>
+
+<pre><code class="language-rust">
+#[derive(Copy)]
+enum Suite {
+    Clubs,
+    Diamonds,
+    Hearts,
+    Spades,
+}
+
+#[derive(Copy)]
+enum Rank {
+    Num(u32),
+    Ace,
+    Jack,
+    King,
+    Queen,
+}
+
+#[derive(Copy)]
+struct Card {
+    suite: Suite,
+    rank: Rank,
+}
+
+</code></pre>
+
+<p>From there, I use a special case of the <code>impl</code> keyword</p>
+
+<pre><code class="language-rust">
+
+impl Clone for Suite {
+    fn clone(&amp;self) -&gt; Suite {
+        *self
+    }
+}
+
+
+impl Clone for Rank {
+    fn clone(&amp;self) -&gt; Rank {
+        *self
+    }
+}
+
+impl Clone for Card {
+    fn clone(&amp;self) -&gt; Card { 
+        *self
+    }
+}
+
+
+</code></pre>
+
+<p>Now Its trivial to clone a deck of cards</p>
+
+<pre><code class="language-rust">let deck: Vec&lt;Card&gt; = shuffle_deck(make_deck());
+let newDeck: Vec&lt;Card&gt; = deck.clone();
+
+</code></pre>
+
+<p>Whats amazing is that the ownership and lifetime rules guarantee that the resources will be released when the current scope finishes.</p>
+</article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="/tags/development"><span class="tag">Development</span></a></li>
+        
+          <li><a href="/tags/golang"><span class="tag">Golang</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        This post was published <strong>232</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 IO.blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>concurrency by message passing in elixir</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="" />
+  <meta name="description" content="In my last post, I talked about Elixir&amp;rsquo;s core syntax. While I love the brevity and pure functional style favored in elixir, I didn&amp;rsquo;t even touch on it primary value added proposition. Elixir is really a process oriented programming langauge.
+" />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="concurrency by message passing in elixir" />
+    <meta name="twitter:description" content="In my last post, I talked about Elixir&amp;rsquo;s core syntax. While I love the brevity and pure functional style favored in elixir, I didn&amp;rsquo;t even touch on it primary value added proposition. Elixir is really a process oriented programming langauge.
+" />
+    <meta name="twitter:image" content="http://cultofmetatron.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://cultofmetatron.io/post/concurrency-by-message-passing-in-elixir/" />
+<link rel="alternative" href="/index.xml" title="IO.blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="IO.blog" />
+<meta name="msapplication-tooltip" content="IO.blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+    
+    
+    <h2 class="title"><a href="/">IO.blog</a></h2>
+    
+    <p class="subtitle"></p>
+    <button class="menu-toggle" type="button">
+      <span class="icon icon-menu"></span>
+    </button>
+    <nav class="site-menu collapsed">
+      <h2 class="offscreen">Main Menu</h2>
+      <ul class="menu-list">
+        
+        
+        <li class="menu-item" ><a href="/post">Posts</a></li>
+        
+        
+          <li class="menu-item "><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="social-menu collapsed">
+      <h2 class="offscreen">Social Networks</h2>
+      <ul class="social-list">
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        <li class="social-item">
+          <a href="/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+        </li>
+  
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">concurrency by message passing in elixir</h1>
+      <p class="post-meta">@ · Dec 2, 2016 · 4 min read</p>
+    </header>
+    <article class="post-content"><p>In my last post, I talked about Elixir&rsquo;s core syntax. While I love the brevity and pure functional style favored in elixir, I didn&rsquo;t even touch on it primary value added proposition.
+
+Elixir is really a process oriented programming langauge.</p>
+
+<p>Rather than worry about low level details like semaphores or mutexes, The concurrency model in elixir is oriented around message passing between lightweight virtual machine processes.</p>
+
+<p>I decided to take mergesort and see how easily I could adapt it to run in parrallel.</p>
+
+<p>The primary idea of mergesort is to split the array in half, recursivly call itself on both halves and merge the two sorted halves to get the final sorted array.</p>
+
+<p>First I made a regular non concurrent version</p>
+
+<pre><code class="language-elixir">
+  # takes two sorted arrays and merges them
+  def merge(list1, list2, acc \\ [])
+  def merge([], [], acc), do: acc
+  def merge([], list, acc), do: acc ++ list
+  def merge(list, [], acc), do: acc ++ list
+  def merge([head1 | tail1], [head2 | tail2], acc) do
+    if head1 &gt;= head2 do
+      merge([head1 | tail1], tail2,   acc ++ [head2])
+    else
+      merge(tail1, [head2 | tail2], acc ++ [head1])
+    end
+  end
+
+  def split(list, acc \\ [[], []])
+  def split([], acc), do: acc
+  def split([x], [left, right]) do
+    [[x | left], right]
+  end
+  def split([x | [y | tail]], [left, right]) do
+    split(tail, [[x | left], [y | right]])
+  end
+
+  @doc &quot;&quot;&quot;
+    Sorts the numbers
+    iex&gt; ParallelMergesort.sort([5, 4, 3, 2, 1])
+    [1, 2, 3, 4, 5]
+  &quot;&quot;&quot;
+  def sort([]), do: []
+  def sort([a]), do: [a]
+  def sort(list) do
+    [left, right] = split(list)
+    merge(sort(left), sort(right))
+  end
+
+</code></pre>
+
+<p>visually, it looks like this,</p>
+
+<pre><code>[6, 5, 4, 3, 2, 1]
+# breaks down to the expression
+merge(
+	merge(
+    	merge([6], [5]), 
+        [4])
+	merge(
+    	merge([3], [2]), 
+        [1]))
+</code></pre>
+
+<p>In the original version, the left hand has to be processed before the right side can be processed. Seems we could gain an advantage by running the mergesort on both sides in parrallel.</p>
+
+<p>To accomplish this, what we need to do is have each recursive call spawn a new process and listen for its output as a message.</p>
+
+<p>In elixir, this is done using spawn or spawn_link</p>
+
+<pre><code class="language-elixir">
+pid = spawn MODULENAME, :function, [arg1, arg2 ...]
+    
+</code></pre>
+
+<p>Spawn returns the pid of the process we jsut spawned. From within any process, we can send a message to any other process if we know its <em>pid</em>.</p>
+
+<p>inside a process, we can listen for messages using <em>receive.</em></p>
+
+<pre><code class="language-elixir">
+# value evaluates to msg
+value = receive do
+	msg -&gt;
+    	msg
+end
+
+</code></pre>
+
+<p>So instead of calling the function recursivly on both halves, we spawn a new process running the mergesort recursivly. Then we wait until we get back a message containing the result.</p>
+
+<p>In order for the child process to send back data, it needs to be called with its parent id.</p>
+
+<p>first we take care of its base cases</p>
+
+<pre><code class="language-elixir">
+  def psort(parent_id, []) do
+    send parent_id, {self, [] }
+  end
+  def psort(parent_id, [a]) do
+    send parent_id, {self, [a] }
+  end
+
+</code></pre>
+
+<p>Notice how instead of returning the value, we are given the parent process id and we use that to send the return value back up. The payload is a tuple containing self and the return value. The self is an elixir value that resolves to the pid of the current process. It&rsquo;s used to help parent processes differentiate its children.</p>
+
+<p>The recursive case becomes easy. split te list, map over it with swan to get an array of pids and map over that to listen for messages from both processes. We then extract the result values and merge them before sending it back to the parent process with the current pid.</p>
+
+<pre><code class="language-elixir">
+def psort(parent_id, list) do
+    sorted = split(list)
+      |&gt; Enum.map(fn(half) -&gt;
+          #dispatch mergesort on the half to a 
+          #spawned version of itself
+          #IO.inspect(half)
+          spawn_link(ParallelMergesort, :psort, [self , half])
+         end)
+      |&gt; Enum.map(fn(pid) -&gt;
+          #recieve a message from the pid
+          receive do
+          	#^pid means only match to the current value
+            # of pid in this scope.
+            {^pid, sorted_half} -&gt;
+              sorted_half
+            after 1000 -&gt;
+              IO.puts('error')
+          end
+         end)
+      |&gt; (fn([left, right]) -&gt; 
+          merge(left, right)
+         end).()
+     send(parent_id, {self, sorted})
+  end
+
+</code></pre>
+
+<p>now we only have to create the parent function that kicks this whole process off</p>
+
+<pre><code class="language-elixir">
+def parallel_sort(list) do
+  pid = spawn_link(ParallelMergesort, :psort, [self, list])
+  receive do
+    {^pid, sorted} -&gt;
+      sorted
+    after 1000 -&gt;
+      {:error}
+  end
+end
+
+</code></pre>
+
+<p>And just like that, we have a parallelized mergesort.</p>
+
+<p>The code is up on my <a href="https://github.com/cultofmetatron/elixir-parallel-mergesort/blob/master/lib/parallel_mergesort.ex">github</a>. Thanks for reading!</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="/tags/development"><span class="tag">Development</span></a></li>
+        
+          <li><a href="/tags/elixir"><span class="tag">Elixir</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        This post was published <strong>344</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 IO.blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Auth0 on Phoenix Ueberauth</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="" />
+  <meta name="description" content="Previously I covered how to install auth0 on your browser. There are limitations to a client based approach. For one, you are limited strictly to jwt login. Furthermore, you can&amp;rsquo;t run execute any jobs to be performed on login. If you want to enable cookie sessions or run any sorts of side effect behavior to occur on login, you&amp;rsquo;re going to need to setup the oauth redirect to go through your phoenix server.
+
+" />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="Auth0 on Phoenix Ueberauth" />
+    <meta name="twitter:description" content="Previously I covered how to install auth0 on your browser. There are limitations to a client based approach. For one, you are limited strictly to jwt login. Furthermore, you can&amp;rsquo;t run execute any jobs to be performed on login. If you want to enable cookie sessions or run any sorts of side effect behavior to occur on login, you&amp;rsquo;re going to need to setup the oauth redirect to go through your phoenix server.
+
+" />
+    <meta name="twitter:image" content="http://cultofmetatron.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://cultofmetatron.io/post/auth0-on-phoenix-p2-ueberauth/" />
+<link rel="alternative" href="/index.xml" title="IO.blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="IO.blog" />
+<meta name="msapplication-tooltip" content="IO.blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+    
+    
+    <h2 class="title"><a href="/">IO.blog</a></h2>
+    
+    <p class="subtitle"></p>
+    <button class="menu-toggle" type="button">
+      <span class="icon icon-menu"></span>
+    </button>
+    <nav class="site-menu collapsed">
+      <h2 class="offscreen">Main Menu</h2>
+      <ul class="menu-list">
+        
+        
+        <li class="menu-item" ><a href="/post">Posts</a></li>
+        
+        
+          <li class="menu-item "><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="social-menu collapsed">
+      <h2 class="offscreen">Social Networks</h2>
+      <ul class="social-list">
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        <li class="social-item">
+          <a href="/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+        </li>
+  
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Auth0 on Phoenix Ueberauth</h1>
+      <p class="post-meta">@ · Mar 6, 2017 · 3 min read</p>
+    </header>
+    <article class="post-content"><p>Previously I covered how to install auth0 on your browser.
+There are limitations to a client based approach.
+For one, you are limited strictly to jwt login. Furthermore,
+you can&rsquo;t run execute any jobs to be performed on login.
+If you want to enable cookie sessions or run any sorts of side
+effect behavior to occur on login, you&rsquo;re going to need to setup
+the oauth redirect to go through your phoenix server.</p>
+
+<p></p>
+
+<h2 id="ueberauth">Ueberauth</h2>
+
+<p><a href="https://github.com/ueberauth/ueberauth">Ueberauth</a> is a set of middleware
+for Phoenix that allows you to hook in oauth strategies for various identity
+providers in a consistant way. Its kind of like Passport if you use nodejs.</p>
+
+<p>First You want to install ueberauth and ueberauth-auth0.</p>
+
+<p>You&rsquo;ll want to add the followign hex packages to your application.</p>
+
+<blockquote>
+<p>Mix.exs</p>
+</blockquote>
+
+<pre><code>defmodule LaVoyage.Web.Mixfile do
+  use Mix.Project
+
+  ...
+
+  # Configuration for the OTP application.
+  #
+  # Type `mix help compile.app` for more information.
+  def application do
+    [mod: {LaVoyage.Web, []},
+     applications: [
+       ...
+       :auth0_ex,
+       :ueberauth,
+       :oauth2
+      ]
+    ]
+  end
+
+  # Specifies which paths to compile per environment.
+  defp elixirc_paths(:test), do: [&quot;lib&quot;, &quot;web&quot;, &quot;test/support&quot;]
+  defp elixirc_paths(_),     do: [&quot;lib&quot;, &quot;web&quot;]
+
+  # Specifies your project dependencies.
+  #
+  # Type `mix help deps` for examples and options.
+  defp deps do
+  [
+     ...
+     {:auth0_ex, &quot;~&gt; 0.1&quot;},
+     {:ueberauth, &quot;~&gt; 0.4&quot;},
+     {:ueberauth_auth0, &quot;~&gt; 0.1&quot;},
+     {:oauth2, &quot;~&gt; 0.9&quot;},
+    ]
+  end
+end
+
+
+</code></pre>
+
+<p>Now just run <code>mix deps.get</code> and add the following to your <code>config/config.exs</code></p>
+
+<pre><code>config :auth0_ex,
+  domain: AUTH0_DOMAIN,
+  mgmt_client_id: CLIENT_ID 
+  mgmt_client_secret: CLIENT_SECRET
+  http_opts: []
+
+config :ueberauth, Ueberauth.Strategy.Auth0.OAuth,
+  domain: AUTH0_DOMAIN,
+  client_id: CLIENT_ID ,
+  client_secret: CLIENT_SECRET
+
+config :ueberauth, Ueberauth,
+providers: [
+  auth0: {Ueberauth.Strategy.Auth0, []}
+]
+
+config :oauth2,
+  warn_missing_serializer: false,
+  serializers: %{
+    &quot;application/vnd.api+json&quot; =&gt; Poison,
+    &quot;application/json&quot; =&gt; Poison
+  }
+
+</code></pre>
+
+<p>Create a <em>SessionController</em> module in your controller.</p>
+
+<p>Ueberauth gives you a few macros that generate controller endpoints that
+call the <code>callback()</code> method. You want to add the following callback and request methods in
+your SessionController.</p>
+
+<pre><code>defmodule SessionController do
+  use LaVoyage.Web.Web, :controller
+  plug Ueberauth
+
+  def request(conn, _params) do
+    render(conn, &quot;login.html&quot;, callback_url: Ueberauth.Strategy.Helpers.callback_url(conn))
+  end
+
+  def callback(%Plug.Conn{assigns: %{ueberauth_failure: fails}} = conn, _params) do
+    conn
+    |&gt; put_flash(:error, hd(fails.errors).message)
+    |&gt; render(&quot;login.html&quot;, callback_url: Ueberauth.Strategy.Helpers.callback_url(conn))
+  end
+
+  def callback(%Plug.Conn{assigns: %{ueberauth_auth: auth}} = conn, _params) do
+    token = auth |&gt; Map.get(:credentials) |&gt; Map.get(:other) |&gt; Map.get(&quot;id_token&quot;)
+    conn
+      |&gt; put_session(:current_user, auth)
+      |&gt; put_session(:jwt_token, token)
+      |&gt; rediect(to: page_path(conn, :index))
+  end
+end
+</code></pre>
+
+<p>This callback with pass a Plug connection with an ueberauth auth object containing
+all the details of the login request. from here we can perform any application
+specific activity that may be necessary for your app. In this case, we get the
+jwt from the auth object and put it into the user session along with user data
+before issuing a redirect.</p>
+
+<p>Now in auth0, you want to add your url to the list of allowed callbacks</p>
+
+<p><img src="/images/auth0_cb_urls.png" alt="Alt text" /></p>
+
+<p>Now we just need to add your route</p>
+
+<pre><code>scope &quot;/auth&quot;, LaVoyage.Web do
+  pipe_through :browser
+  get  &quot;/signin&quot;, SessionController, :request
+  get  &quot;/:provider/callback&quot;, SessionController, :callback
+end
+</code></pre>
+
+<p>That should give us everything we need on the backend. Next we need to go back
+and configure Auth0-lock on the frontend to redirect through out server</p>
+
+<blockquote>
+<p>app.js</p>
+</blockquote>
+
+<pre><code class="language-javascript">import Auth0Lock from 'auth0-lock';
+import socket from &quot;./socket&quot;
+
+import { cid, domain } from 'configs/auth0';
+
+const lock = new Auth0Lock(cid, domain, {
+  auth: {
+    redirectUrl: &quot;http://localhost:4000/auth/auth0/callback&quot;,
+    responseType: 'code',
+    params: {
+      scope: 'openid email'
+    }
+  }
+});
+
+lock.show();
+
+lock.on(&quot;authenticated&quot;, function(authResult) {
+  lock.getProfile(authResult.idToken, function(error, profile) {
+    if (error) {
+      // Handle error
+      return;
+    }
+    localStorage.setItem('id_token', authResult.idToken);
+    // Display user information
+    console.log(profile)
+  });
+});
+
+</code></pre>
+
+<p>Now you should be ready to go.</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="/tags/development"><span class="tag">Development</span></a></li>
+        
+          <li><a href="/tags/golang"><span class="tag">Golang</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        This post was published <strong>249</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 IO.blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://cultofmetatron.io/about/</loc>
+    <lastmod>2017-11-11T16:48:24-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/thinking-in-ecto-p1/</loc>
+    <lastmod>2017-04-22T17:02:46-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/learning-rust-with-blackjack-p2/</loc>
+    <lastmod>2017-03-24T11:34:11-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/learning-rust-with-blackjack-p1/</loc>
+    <lastmod>2017-03-21T12:33:04-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/better-living-through-blockchains-p2/</loc>
+    <lastmod>2017-03-07T20:09:15-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/better-living-through-blockchains-p1/</loc>
+    <lastmod>2017-03-07T14:21:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/auth0-on-phoenix-p2-ueberauth/</loc>
+    <lastmod>2017-03-06T21:21:25-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/project_level_go_environment_with_direnv/</loc>
+    <lastmod>2017-03-04T16:10:53-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/auth0-on-phoenix-p1/</loc>
+    <lastmod>2017-03-01T00:19:51-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/10-reasons-you-should-bet-on-elixir/</loc>
+    <lastmod>2017-01-02T00:18:23-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/elixir-first-impressions/</loc>
+    <lastmod>2017-01-02T00:13:42-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/concurrency-by-message-passing-in-elixir/</loc>
+    <lastmod>2016-12-02T00:15:41-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/one-wierd-trick-to-improving-your-javascript/</loc>
+    <lastmod>2016-05-02T00:11:43-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/my-reaction-to-reactive-extensions/</loc>
+    <lastmod>2016-04-02T00:09:41-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/binary-streams-in-elixr/</loc>
+    <lastmod>2016-03-02T00:16:51-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/the-point-of-promises/</loc>
+    <lastmod>2016-03-02T00:06:38-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/tags/bitcoin/</loc>
+    <lastmod>2017-03-07T14:21:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/tags/blockchain/</loc>
+    <lastmod>2017-03-07T14:21:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/categories/blockchains/</loc>
+    <lastmod>2017-03-07T14:21:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/categories/</loc>
+    <lastmod>2017-03-07T14:21:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/tags/cryptocurrency/</loc>
+    <lastmod>2017-03-07T14:21:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/categories/cryptocurrency/</loc>
+    <lastmod>2017-03-07T14:21:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/tags/development/</loc>
+    <lastmod>2017-04-22T17:02:46-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/categories/development/</loc>
+    <lastmod>2017-04-22T17:02:46-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/tags/elixir/</loc>
+    <lastmod>2017-04-22T17:02:46-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/categories/elixir/</loc>
+    <lastmod>2017-04-22T17:02:46-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/tags/etheream/</loc>
+    <lastmod>2017-03-07T14:21:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/tags/golang/</loc>
+    <lastmod>2017-03-24T11:34:11-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/categories/golang/</loc>
+    <lastmod>2017-03-24T11:34:11-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/</loc>
+    <lastmod>2017-11-11T16:48:24-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/tags/javascript/</loc>
+    <lastmod>2016-05-02T00:11:43-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/categories/javascript/</loc>
+    <lastmod>2016-05-02T00:11:43-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/categories/phoenix/</loc>
+    <lastmod>2017-04-22T17:02:46-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/post/</loc>
+    <lastmod>2017-04-22T17:02:46-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/tags/rust/</loc>
+    <lastmod>2017-03-21T12:33:04-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/categories/rust/</loc>
+    <lastmod>2017-03-21T12:33:04-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/categories/rxjs/</loc>
+    <lastmod>2016-03-02T00:06:38-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://cultofmetatron.io/tags/</loc>
+    <lastmod>2017-03-07T14:21:05-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

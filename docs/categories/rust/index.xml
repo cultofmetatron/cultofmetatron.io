@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on IO.blog</title>
+    <link>http://cultofmetatron.io/categories/rust/</link>
+    <description>Recent content in Rust on IO.blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Mar 2017 12:33:04 -0400</lastBuildDate>
+    
+	<atom:link href="http://cultofmetatron.io/categories/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Learning Rust With Blackjack Part 1</title>
+      <link>http://cultofmetatron.io/post/learning-rust-with-blackjack-p1/</link>
+      <pubDate>Tue, 21 Mar 2017 12:33:04 -0400</pubDate>
+      
+      <guid>http://cultofmetatron.io/post/learning-rust-with-blackjack-p1/</guid>
+      <description>I never got very far with c. I was still a noob at programming and constant segaults with no feedback plagued my path to success. I ultimately moved on to ruby and eventually javascript and elixir. C is honest and close to the metal and systems program has been on my list of things to get back into.
+My two primary languages these days are javscript and elixir. This leaves my repertoire of skills with a hole in systems programming.</description>
+    </item>
+    
+  </channel>
+</rss>

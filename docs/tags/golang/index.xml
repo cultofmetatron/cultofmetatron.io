@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on IO.blog</title>
+    <link>http://cultofmetatron.io/tags/golang/</link>
+    <description>Recent content in Golang on IO.blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Mar 2017 11:34:11 -0400</lastBuildDate>
+    
+	<atom:link href="http://cultofmetatron.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>learning rust with blackjack p2</title>
+      <link>http://cultofmetatron.io/post/learning-rust-with-blackjack-p2/</link>
+      <pubDate>Fri, 24 Mar 2017 11:34:11 -0400</pubDate>
+      
+      <guid>http://cultofmetatron.io/post/learning-rust-with-blackjack-p2/</guid>
+      <description>I realize I&amp;rsquo;ve grown soft relying on garbage collection and rust is a harsh but fair taskmaster. Its been 4 days since I picked up rust and I&amp;rsquo;m finally starting to get the hang of the borrow checker. Learning rust is a very different experience than learning c++. A tight feedback loop is essential to the learning process.
+As I continue to build this blackjack, I find that the compiler picks up issues that would lead to segfaults when I learned c.</description>
+    </item>
+    
+    <item>
+      <title>Better living through blockchains - Finance</title>
+      <link>http://cultofmetatron.io/post/better-living-through-blockchains-p2/</link>
+      <pubDate>Tue, 07 Mar 2017 20:09:15 -0500</pubDate>
+      
+      <guid>http://cultofmetatron.io/post/better-living-through-blockchains-p2/</guid>
+      <description>&lt;p&gt;Most people looking at &lt;a href=&#34;https://www.ethereum.org/&#34;&gt;Etheream&lt;/a&gt; see only the altcoin which you can now purchase on &lt;a href=&#34;https://www.coinbase.com/&#34;&gt;coinbase&lt;/a&gt;.
+Its so much more than that.
+As I mentioned earlier, Bitcoin&amp;rsquo;s ruleset for registering transactions is a simple stack based instruction set only supporting a transfer of assets.
+Etheream&amp;rsquo;s transaction engine, on the other hand, is turing complete.
+The consequences of this is that transactions into the etheream blockchain can embed computer programs.
+Etheream consequently can run applictaions on a distributed network.&lt;/p&gt;
+
+&lt;p&gt;It takes a little imagination to see the potential of the technology.
+The main benefit is in removing the need of a centralized trusted arbiter.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auth0 on Phoenix Ueberauth</title>
+      <link>http://cultofmetatron.io/post/auth0-on-phoenix-p2-ueberauth/</link>
+      <pubDate>Mon, 06 Mar 2017 21:21:25 -0500</pubDate>
+      
+      <guid>http://cultofmetatron.io/post/auth0-on-phoenix-p2-ueberauth/</guid>
+      <description>&lt;p&gt;Previously I covered how to install auth0 on your browser.
+There are limitations to a client based approach.
+For one, you are limited strictly to jwt login. Furthermore,
+you can&amp;rsquo;t run execute any jobs to be performed on login.
+If you want to enable cookie sessions or run any sorts of side
+effect behavior to occur on login, you&amp;rsquo;re going to need to setup
+the oauth redirect to go through your phoenix server.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Project Level go environment with direnv</title>
+      <link>http://cultofmetatron.io/post/project_level_go_environment_with_direnv/</link>
+      <pubDate>Sat, 04 Mar 2017 16:10:53 -0500</pubDate>
+      
+      <guid>http://cultofmetatron.io/post/project_level_go_environment_with_direnv/</guid>
+      <description>I had a spare weekend to start goin through Writing An Interpreter In Go. I came into it knowing zero go and was running into the this error.
+ warning: GOPATH set to GOROOT (/Users/cultofmetatron/projects/waiig_code_1.3/01/src/monkey) has no effect lexer/lexer.go:3:8: cannot find package &amp;quot;monkey/token&amp;quot; in any of: /Users/cultofmetatron/projects/waiig_code_1.3/01/src/monkey/src/monkey/token (from $GOROOT) ($GOPATH not set. For more details see: &#39;go help gopath&#39;) package ./lexer imports runtime: cannot find package &amp;quot;runtime&amp;quot; in any of: /Users/cultofmetatron/projects/waiig_code_1.</description>
+    </item>
+    
+  </channel>
+</rss>

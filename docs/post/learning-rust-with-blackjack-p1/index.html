@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Learning Rust With Blackjack Part 1</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="" />
+  <meta name="description" content="I never got very far with c. I was still a noob at programming and constant segaults with no feedback plagued my path to success. I ultimately moved on to ruby and eventually javascript and elixir. C is honest and close to the metal and systems program has been on my list of things to get back into.
+My two primary languages these days are javscript and elixir. This leaves my repertoire of skills with a hole in systems programming." />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="Learning Rust With Blackjack Part 1" />
+    <meta name="twitter:description" content="I never got very far with c. I was still a noob at programming and constant segaults with no feedback plagued my path to success. I ultimately moved on to ruby and eventually javascript and elixir. C is honest and close to the metal and systems program has been on my list of things to get back into.
+My two primary languages these days are javscript and elixir. This leaves my repertoire of skills with a hole in systems programming." />
+    <meta name="twitter:image" content="http://cultofmetatron.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://cultofmetatron.io/post/learning-rust-with-blackjack-p1/" />
+<link rel="alternative" href="/index.xml" title="IO.blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="IO.blog" />
+<meta name="msapplication-tooltip" content="IO.blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+    
+    
+    <h2 class="title"><a href="/">IO.blog</a></h2>
+    
+    <p class="subtitle"></p>
+    <button class="menu-toggle" type="button">
+      <span class="icon icon-menu"></span>
+    </button>
+    <nav class="site-menu collapsed">
+      <h2 class="offscreen">Main Menu</h2>
+      <ul class="menu-list">
+        
+        
+        <li class="menu-item" ><a href="/post">Posts</a></li>
+        
+        
+          <li class="menu-item "><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="social-menu collapsed">
+      <h2 class="offscreen">Social Networks</h2>
+      <ul class="social-list">
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        <li class="social-item">
+          <a href="/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+        </li>
+  
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Learning Rust With Blackjack Part 1</h1>
+      <p class="post-meta">@ · Mar 21, 2017 · 6 min read</p>
+    </header>
+    <article class="post-content">
+
+<p>I never got very far with c.
+I was still a noob at programming and constant segaults with no feedback plagued my path to success.
+I ultimately moved on to ruby and eventually javascript and elixir.
+C is honest and close to the metal and systems program has been on my list of things to get back into.</p>
+
+<p>My two primary languages these days are javscript and elixir.
+This leaves my repertoire of skills with a hole in systems programming.
+Go was the first langauge I looked at.
+Its got a short learning curve and I&rsquo;ll also learn it since there are more jobs for it.
+Rust however, appealed to me.</p>
+
+<p>With the <a href="https://www.rust-lang.org/en-US/">Rust</a> language, I found myself lured back into a world without garbage collection, as close to the metal as c++.
+Projects like <a href="https://www.redox-os.org/">RedoxOS</a> mean I can start looking into realtime embedded design.
+Its not the same as C++.
+Rust is a very diffrent beast.
+No more allocating and deallocating; rust brings higher order abstractions that I&rsquo;ve gotten used to in functional langauges.
+It can detect segfaults and memory leaks at runtime with error messages that actually make sense.</p>
+
+<p>This weekend, I finally decided to take the plunge.</p>
+
+<p>For a first project, I decided to go with blackjack.</p>
+
+<p>Rust uses cargo as a built tool.
+This gives us an easy way to start a project.</p>
+
+<pre><code class="language-rust">cargo new blackjack --bin
+</code></pre>
+
+<p>Now we have a basic project with a <code>Cargo.Toml</code> and a <code>src/main.rs</code> file.</p>
+
+<p>Inside the <code>main.rs</code> file is the main function.</p>
+
+<pre><code>
+fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+
+</code></pre>
+
+<p>I remember a typical c main program has the main function return an int with the proper exit value being 0.
+Rust abstracts away that detail.</p>
+
+<p>With cargo, we can run the app with <code>cargo run</code>.</p>
+
+<p>First thing I need is to successfully model the card deck.
+Rust, borrowing heavily from functional roots has great support for Enum types.
+As my first goal, I want to write a program that creates a shuffled deck of 52 cards.</p>
+
+<p>As part of this, my goal is to support the following features today.</p>
+
+<ol>
+<li>model one card with a constructor</li>
+<li>create a function that creates a deck of card</li>
+</ol>
+
+<p>A card has both a rank and a suite.
+Rust has rich support for enumerated types which make this surprisingly easy.</p>
+
+<pre><code>
+enum Suite {
+    Clubs,
+    Diamonds,
+    Hearts,
+    Spades,
+}
+
+enum Rank {
+    Num(i32),
+    Ace,
+    Jack,
+    King,
+    Queen,
+}
+
+struct Card {
+    suite: Suite,
+    rank: Rank,
+}
+
+</code></pre>
+
+<p>I can now create a a 3 of hearts and an ace of spades!</p>
+
+<pre><code>
+let three_of_hearts: Card = Card {
+  suite: Suite::Hearts,
+  rank: Rank::Num(3),
+};
+
+//type declaration is optional
+let ace_of_spades = Card {
+  suite: Suite::Spades,
+  ranks:: Rank::Ace,
+};
+
+</code></pre>
+
+<p>The type declaration is optional since the compiler can infer it from the right hand side.
+Rust includes for support for methods via the <code>impl</code> keyword which we can use to creat a  <code>new()</code> constructor.</p>
+
+<pre><code>
+impl Card {
+    //this function takes a rank and suite and returns a card
+    fn new(rank: Rank, suite: Suite) -&gt; Card {
+        Card {
+            suite: suite,
+            rank: rank,
+        }
+    }
+}
+
+</code></pre>
+
+<p>This is equivalent to a class method or a static function in OO langauges.
+With it, we now have an abbreviated way to create cards via our new instantiator.</p>
+
+<pre><code>
+let three_of_hearts = Card::new(Rank::Ace,     Suite::Spades);
+let ace_of_spades   = Card::new(Rank::Num(3),  Suite::Hearts);
+
+</code></pre>
+
+<p>My next goal is a function <code>make_deck()</code> that creates a deck of cards.
+Rust vectors look like a good choice for such a collection.</p>
+
+<p>To create a basic Vector, we user <code>vec!</code></p>
+
+<pre><code>// a vector 32 bit integers
+let ls: Vector&lt;i32&gt; = vec![1, 2, 3];
+let card_list: Vector&lt;Card&gt; = vec![
+  Card::new(Rank::Ace,     Suite::Clubs),
+  Card::new(Rank::Num(2),  Suite::Clubs),
+  ...
+];
+
+</code></pre>
+
+<p>Rust supports generics where the type is declared inside the brackets.
+A function for creating a deck that returns a vector of cards would look like</p>
+
+<pre><code>
+//returns a type Vec&lt;Card&gt;
+fn make_deck() -&gt; Vec&lt;Card&gt; {
+    vec![
+      Card::new(Rank::Ace,     Suite::Clubs),
+        Card::new(Rank::Num(2),  Suite::Clubs),
+        Card::new(Rank::Num(3),  Suite::Clubs),
+        Card::new(Rank::Num(4),  Suite::Clubs),
+        Card::new(Rank::Num(5),  Suite::Clubs),
+        Card::new(Rank::Num(6),  Suite::Clubs),
+        Card::new(Rank::Num(7),  Suite::Clubs),
+        Card::new(Rank::Num(8),  Suite::Clubs),
+        Card::new(Rank::Num(9),  Suite::Clubs),
+        Card::new(Rank::Num(10), Suite::Clubs),
+        Card::new(Rank::King,    Suite::Clubs),
+        Card::new(Rank::Jack,    Suite::Clubs),
+        Card::new(Rank::Queen,   Suite::Clubs),
+
+        Card::new(Rank::Ace,     Suite::Spades),
+        Card::new(Rank::Num(2),  Suite::Spades),
+        Card::new(Rank::Num(3),  Suite::Spades),
+        Card::new(Rank::Num(4),  Suite::Spades),
+        Card::new(Rank::Num(5),  Suite::Spades),
+        Card::new(Rank::Num(6),  Suite::Spades),
+        Card::new(Rank::Num(7),  Suite::Spades),
+        Card::new(Rank::Num(8),  Suite::Spades),
+        Card::new(Rank::Num(9),  Suite::Spades),
+        Card::new(Rank::Num(10), Suite::Spades),
+        Card::new(Rank::King,    Suite::Spades),
+        Card::new(Rank::Jack,    Suite::Spades),
+        Card::new(Rank::Queen,   Suite::Spades),
+
+        Card::new(Rank::Ace,     Suite::Diamonds),
+        Card::new(Rank::Num(2),  Suite::Diamonds),
+        Card::new(Rank::Num(3),  Suite::Diamonds),
+        Card::new(Rank::Num(4),  Suite::Diamonds),
+        Card::new(Rank::Num(5),  Suite::Diamonds),
+        Card::new(Rank::Num(6),  Suite::Diamonds),
+        Card::new(Rank::Num(7),  Suite::Diamonds),
+        Card::new(Rank::Num(8),  Suite::Diamonds),
+        Card::new(Rank::Num(9),  Suite::Diamonds),
+        Card::new(Rank::Num(10), Suite::Diamonds),
+        Card::new(Rank::King,    Suite::Diamonds),
+        Card::new(Rank::Jack,    Suite::Diamonds),
+        Card::new(Rank::Queen,   Suite::Diamonds),
+
+        Card::new(Rank::Ace,     Suite::Hearts),
+        Card::new(Rank::Num(2),  Suite::Hearts),
+        Card::new(Rank::Num(3),  Suite::Hearts),
+        Card::new(Rank::Num(4),  Suite::Hearts),
+        Card::new(Rank::Num(5),  Suite::Hearts),
+        Card::new(Rank::Num(6),  Suite::Hearts),
+        Card::new(Rank::Num(7),  Suite::Hearts),
+        Card::new(Rank::Num(8),  Suite::Hearts),
+        Card::new(Rank::Num(9),  Suite::Hearts),
+        Card::new(Rank::Num(10), Suite::Hearts),
+        Card::new(Rank::King,    Suite::Hearts),
+        Card::new(Rank::Jack,    Suite::Hearts),
+        Card::new(Rank::Queen,   Suite::Hearts),
+    ]
+}
+
+</code></pre>
+
+<p>You may have noticed that I left off the semicolon.
+Rust is a little wierd with statements.
+They don&rsquo;t return a value so we have to leave them off in order for the vector to be implicitly returned.</p>
+
+<p>now we can create a deck of cards.</p>
+
+<pre><code>
+let dec: Vec&lt;Card&gt; = shuffle_deck(make_deck());
+
+</code></pre>
+
+<p>Lastly for today, I want a function that shuffles the deck.</p>
+
+<blockquote>
+<p>by default, all data structures are immutable by default. The <code>mut</code> keyword
+is used to make it explicitly mutable.</p>
+</blockquote>
+
+<h2 id="crates">crates</h2>
+
+<p>The <a href="https://crates.io/crates/rand">rand package</a> provides the <a href="https://doc.rust-lang.org/rand/rand/trait.Rng.html#method.shuffle">shuffle()</a> function.</p>
+
+<p>To install it, we add the package to the Cargo.Toml.</p>
+
+<pre><code>
+[package]
+name = &quot;blackjack&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;Peter de Croos &lt;cultofmetatron@aumlogic.com&gt;&quot;]
+
+[dependencies]
+rand = &quot;0.3&quot;
+
+</code></pre>
+
+<p>Next time we run <code>cargo build</code> or <code>cargo run</code>, it will download the dependencies.</p>
+
+<p>Now we just add to the top of the main.rs.</p>
+
+<pre><code>extern crate rand;
+use rand::Rng;
+
+</code></pre>
+
+<p>To create the shuffle function for our deck,
+  we need to instantiate a local random number generator and pass into it a mutable version of our deck.</p>
+
+<pre><code>fn shuffle_deck(mut deck: Vec&lt;Card&gt;) -&gt; Vec&lt;Card&gt; {
+    let mut rng = rand::thread_rng();
+    rng.shuffle(&amp;mut deck);
+    deck
+}
+</code></pre>
+
+<p>To test the shuffle, I need some way to convert a card to a string.
+For now I&rsquo;ll just focus on a function <code>stringify_rank(rank: &amp;Rank)</code> that prints the rank.
+This means we need to match each rank to an associated string.
+Rust provides a <code>match</code> keyword thats very similar to elixir&rsquo;s case keyword.
+The function needs to borrow a reference to the rank and return a reference to a string.</p>
+
+<pre><code>
+fn stringify_rank(rank: &amp;Rank) -&gt; String {
+    let rank_str = match *rank {
+        Rank::Num(val) =&gt; val.to_string(),
+        Rank::Ace =&gt; &quot;Ace&quot;.to_string(),
+        Rank::Jack =&gt; &quot;Jack&quot;.to_string(),
+        Rank::King =&gt; &quot;King&quot;.to_string(),
+        Rank::Queen =&gt; &quot;Queen&quot;.to_string(),
+    };
+    rank_str
+}
+
+</code></pre>
+
+<p>Rust has both literal string and a referece string and you have to explicitly handle them diffrently.
+I added the <code>.to_string()</code> to make sure they all return the same type in order to satisfy the return type specified in type declaration.</p>
+
+<p>Now we can write a small main function that we can run over and over to verify that the deck is being shuffled.</p>
+
+<pre><code>fn main() {
+    let dec: Vec&lt;Card&gt; = shuffle_deck(make_deck());
+    let ref first = dec[0];
+    let ref rank = first.rank;
+    let str_y = stringify_rank(rank);
+    println!(&quot;the first rank is: {}&quot;, str_y);
+}
+
+</code></pre>
+
+<p>If we run this over and over with <code>cargo run</code>, you should get multiple values for the deck.</p>
+
+<p>It was a bit of a culture shock and friction with the borrow checker.
+That said, its amazing to me that this code will run in the same performance ballpark as c++ while guaranteeing no segfaults or memory leaks.</p>
+</article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="/tags/development"><span class="tag">Development</span></a></li>
+        
+          <li><a href="/tags/rust"><span class="tag">Rust</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        This post was published <strong>235</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 IO.blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>

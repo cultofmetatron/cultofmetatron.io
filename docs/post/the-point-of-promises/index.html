@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>the point of promises</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="" />
+  <meta name="description" content="You&amp;rsquo;ve learned the basics of javascript. Hell, I dare say you&amp;rsquo;ve probably squeezed out a first project. I&amp;rsquo;m willing to bet that for most of you, the idea of asynchronous code still seems like magic.
+True enough, javascript&amp;rsquo;s event loop model of execution is strange and fantastical when you are first learning it and downright aggravating when you suddenly realize that you have a list of filenames. You need to load them all up and run another function with the contents of each respective file.
+Need to do this with two? Easy. " />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="the point of promises" />
+    <meta name="twitter:description" content="You&amp;rsquo;ve learned the basics of javascript. Hell, I dare say you&amp;rsquo;ve probably squeezed out a first project. I&amp;rsquo;m willing to bet that for most of you, the idea of asynchronous code still seems like magic.
+True enough, javascript&amp;rsquo;s event loop model of execution is strange and fantastical when you are first learning it and downright aggravating when you suddenly realize that you have a list of filenames. You need to load them all up and run another function with the contents of each respective file.
+Need to do this with two? Easy. " />
+    <meta name="twitter:image" content="http://cultofmetatron.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://cultofmetatron.io/post/the-point-of-promises/" />
+<link rel="alternative" href="/index.xml" title="IO.blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="IO.blog" />
+<meta name="msapplication-tooltip" content="IO.blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+    
+    
+    <h2 class="title"><a href="/">IO.blog</a></h2>
+    
+    <p class="subtitle"></p>
+    <button class="menu-toggle" type="button">
+      <span class="icon icon-menu"></span>
+    </button>
+    <nav class="site-menu collapsed">
+      <h2 class="offscreen">Main Menu</h2>
+      <ul class="menu-list">
+        
+        
+        <li class="menu-item" ><a href="/post">Posts</a></li>
+        
+        
+          <li class="menu-item "><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="social-menu collapsed">
+      <h2 class="offscreen">Social Networks</h2>
+      <ul class="social-list">
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        <li class="social-item">
+          <a href="/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+        </li>
+  
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">the point of promises</h1>
+      <p class="post-meta">@ · Mar 2, 2016 · 6 min read</p>
+    </header>
+    <article class="post-content"><p>You&rsquo;ve learned the basics of javascript. Hell, I dare say you&rsquo;ve probably squeezed out a first project. I&rsquo;m willing to bet that for most of you, the idea of asynchronous code still seems like magic.</p>
+
+<p>True enough, javascript&rsquo;s event loop model of execution is strange and fantastical when you are first learning it and downright aggravating when you suddenly realize that you have a list of filenames. You need to load them all up and run another function with the contents of each respective file.</p>
+
+<p>Need to do this with two? Easy.
+</p>
+
+<pre><code class="language-language-javascript">var fs = require('fs');
+fs.readFile('hello.txt', 'utf8', function(err, helloCont) {
+  fs.readFile('world.txt', 'utf8', function(err, worldCont) {
+  	console.log(helloCont + ' ' + worldCont);
+  });
+});
+</code></pre>
+
+<p>Ugly but easy enough. What if you don&rsquo;t know how many async calls you need to make?</p>
+
+<pre><code class="language-language-javascript">var files = getFiles();
+var i;
+var results = [];
+for(i = 0; i &lt; files.length; i++) {
+  fs.readFile(files[i], 'utf8', function(err, contents) {
+  	results.push(contents);
+    if (i === files.length - 1) {
+     console.log(results);
+    }
+  }
+}
+</code></pre>
+
+<p>I make no apologies. This code is ugly and boorish. More importantly, there are race conditions in this code. We have no way to guarantee the order in which the file contents will come back in. Additionally, I haven&rsquo;t even touched error handling. I will leave a more correct implementation as an exercise to the reader.</p>
+
+<p>This kind of code exemplifies the capacity for asynchronous node code to turn into an absolute mess. Breaking it down, this messiness arises due to a few common factors</p>
+
+<ul>
+<li>Asynchronous code does not enforce a standard interface for io. cb style, thunks, eventemitters etc.</li>
+<li>Asynchronous code does not return anything relevant. It&rsquo;s entirely side-effect dependent, which makes unit testing difficult if not impossible.</li>
+<li>Pyramids of DOOM.</li>
+<li>Error handling&hellip;. TOTALLY FUCKED!</li>
+</ul>
+
+<p>To fix these, Promises povide an interface for manipulating asynchronous data through a chainable composable object. ie: a monad.</p>
+
+<p>I promise it&rsquo;s not as scary as it sounds.</p>
+
+<p>####Basics</p>
+
+<p>A Promise is an object that obeys the following contraints.</p>
+
+<ol>
+<li><p>It encapsulates the state of an asynchronous event. ie: it is either pending, resolved with a value or rejected with an error.</p></li>
+
+<li><p>It is chainable, we can appply a transformation that returns a new instance of a promise that contains a value dependant on the eventual value of the first one.</p></li>
+
+<li><p>It presents a <em>composable</em> unified interface. Any function that takes a promise can be agnostic to the nature of how the asynchronous value is derived. ie: it doesn&rsquo;t matter if the asyc event comes from fileio, setTimeout or user interaction.</p></li>
+
+<li><p>Asynchronous functions now have a synchronous return value. This merges the conflict between callback style and functional programming.</p></li>
+
+<li><p>It represents a one time event. For subscriptions on successive asynchronous events, you will have to fall back to eventemitters or upgrade to reactive streams.</p></li>
+</ol>
+
+<p>To illustrate, let&rsquo;s create a basic function to return a Promise. The function timer, takes a value and a timeout and returns a Promise for that value that resolves with that value in the specified timeout.</p>
+
+<p>For this example, we&rsquo;ll be using bluebird.js</p>
+
+<pre><code class="language-language-javascript">var Promise = require('bluebird');
+
+var timer = function(value, timeout) {
+  return new Promise(function(resolve, reject) {
+  	setTimout(function() {
+      resolve(value);
+    }, timeout);
+  });
+};
+</code></pre>
+
+<p>The Promise constructor is passed a callback that is given two functions as arguments. resolve and reject can then be used within the callback to resolve or reject the state of the promise we are returning. Its important to note that this is happenning asynchronously. We return a promise immediately and we can worry about how the promise will resolve or reject later.</p>
+
+<p>To use a Promise, we chain a function to be run when it resolves by using <strong>.then()</strong>. Five seconds later, &ldquo;hello world&rdquo; prints to the screen.</p>
+
+<pre><code class="language-language-javascript">timer(&quot;hello world&quot;, 5000).then(function(value) {
+  console.log(value);
+});
+</code></pre>
+
+<p>Remember how I said Promises were <em>composable</em>? Calling <strong>.then(fn)</strong> takes a callback and returns a new Promise for the value of the first promise with the callback representing how that value is transformed.</p>
+
+<pre><code class="language-language-javascript">timer(&quot;hello world&quot;, 5000).then(function(value) {
+  return value + ' things are great!'
+})
+.then(function(value) {
+	console.log(value); // 'hello world things are great!'
+});
+
+</code></pre>
+
+<p>Even better, if the callback returns a promise, the then returns a promise for the value of the eventual value of the promise returned inside the callback.</p>
+
+<pre><code class="language-language-javascript">timer(&quot;hello world&quot;, 5000).then(function(value) {
+  return timer(&quot; things are great!&quot;, 5000)
+  .then(functon(val) {
+    return value + val;
+  });
+})
+.then(function(value) {
+	console.log(value); // 'hello world things are great!'
+});
+
+</code></pre>
+
+<p>The result is that in 10 seconds, <em>&lsquo;hello world things are great!&rsquo;</em> prints to the screen.</p>
+
+<p>Lets rework our original file loading example earlier using Promises.</p>
+
+<p>we can write a function that takes a filename and encoding and returns a Promise for the contents trivially.</p>
+
+<pre><code class="language-language-javascript">var readFileAsync = function(filename, encoding) {
+  return new Promise(function(resolve, reject) {
+  	fs.readFile(filename, encoding, function(err, contents) {
+      if (err) { return reject(err) }
+      else { resolve(contents); }
+    });
+  });
+});
+</code></pre>
+
+<p>Bluebird has several helper methods for helping you compose promises.</p>
+
+<p><strong>Promise.all()</strong> takes an array of promises and returns a promise for an array of their resolved values.</p>
+
+<p><strong>Promise.props()</strong> takes an object of promises and returns a promise for an object where the keys now refer to the resolved values.</p>
+
+<p>Now we want to read both hello.txt and world.txt and print them.</p>
+
+<pre><code class="language-language-javascript">  Promise.all([
+    readFileAsync('hello.txt', 'utf8'),   
+    readFileAsync('world.txt', 'utf8')
+  ])
+  .then(function(results) {
+  	return results.join(' ');
+  })
+  .catch(function(err) {
+  	console.log(err);
+  })
+</code></pre>
+
+<p>This is much cleaner and easier to extend.</p>
+
+<p>Every promise also has a catch method. This method will be called if an error is thrown anywhere in the chain and will skil subsequent then calls till we hit a catch. At this point we have an option for how we want to recover from the error. In this case, we simply print the error.</p>
+
+<p>Writing a wrapper for every node function is however a pain. If we assume, that the function follows the pattern of callback as last argument given an err and data. Its pretty easy to write a wrapper to make converting functions easier.</p>
+
+<p>The function <strong>promisify()</strong> takes a node callback style async function and returns a promise returning version of it.</p>
+
+<pre><code class="language-language-javascript">var promisify = function(fn) {
+  return function(args) {
+  	args = Array.prototype.slice.call(arguments);
+    var self = this;
+    return new Promise(function(resolve, reject) {
+      args.push(function(err, data) {
+        if (err) { reject(err); }
+        else { resolve(data); }
+      });
+      fn.apply(self, args);
+    });
+  }
+};
+
+</code></pre>
+
+<p><strong>Promise.promisify()</strong> in bluebird does this. There is also <strong>Promise.promisifyAll()</strong> which takes an object and decorates the object with promise returning functions. They are appended with &lsquo;Async.&rsquo;</p>
+
+<p>With this function, we can now work from a much higher level. For each file load, we can apply a catch handler in case the file does not exist. In this case, fs.readFileAsync returns a promise for the contents of the file. If there is an error, we use catch to recover by having it be a  return for an empty string.</p>
+
+<pre><code class="language-language-javascript">var Promise = require('bluebird');
+var fs = Promise.promisifyAll(require('fs'));
+var _ = require('lodash');
+
+Promise.all(_.map(['hello.txt', 'world.txt'], function(file) {
+  return fs.readFileAsync(file, 'utf8')
+  .catch(function(err) {
+  //we recover with a empty string if there is an error
+    return ''; 
+  });
+}))
+.then(function(results) {
+  console.log(results.join(''));
+})
+.catch(function(err) {
+  console.log(err);
+})
+
+</code></pre>
+
+<p>Composablility, chaining and easy error propagation.</p>
+
+<p>That&rsquo;s the point of promises.</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="/tags/development"><span class="tag">Development</span></a></li>
+        
+          <li><a href="/tags/javascript"><span class="tag">Javascript</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        This post was published <strong>619</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 IO.blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>

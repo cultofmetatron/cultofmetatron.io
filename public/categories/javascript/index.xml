@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on IO.blog</title>
+    <link>http://cultofmetatron.io/categories/javascript/</link>
+    <description>Recent content in Javascript on IO.blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 May 2016 00:11:43 -0500</lastBuildDate>
+    
+	<atom:link href="http://cultofmetatron.io/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>one wierd trick to improving your javascript</title>
+      <link>http://cultofmetatron.io/post/one-wierd-trick-to-improving-your-javascript/</link>
+      <pubDate>Mon, 02 May 2016 00:11:43 -0500</pubDate>
+      
+      <guid>http://cultofmetatron.io/post/one-wierd-trick-to-improving-your-javascript/</guid>
+      <description>&lt;p&gt;As the complexity of the projects I tackle as an engineer have increased over the years. I&amp;rsquo;ve noticed that while my capacity to understand project scope have increased linearly, The problems that I&amp;rsquo;ve had to deal with have increased exponentially in difficulty. The human mind can only hold so much complexity at a time. To rise to the needs of being a software engineer in the 21&amp;rsquo;st century, it takes a healthy dose of humilty to recognize my weaknesses and develop a methodology to handle the complexity.
+
+Without further ado, I introduce one of the most powerful axioms you can adopt in your own code. The extra thinking reqiuired might increase the time it takes to write the code. However, that will be more than paid back in the ability to read your own code and debug it later on.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>my reaction to reactive extensions</title>
+      <link>http://cultofmetatron.io/post/my-reaction-to-reactive-extensions/</link>
+      <pubDate>Sat, 02 Apr 2016 00:09:41 -0500</pubDate>
+      
+      <guid>http://cultofmetatron.io/post/my-reaction-to-reactive-extensions/</guid>
+      <description>&lt;p&gt;Every javascript programmer is on their own hero&amp;rsquo;s journey to mastery.&lt;/p&gt;
+
+&lt;p&gt;It begins with the basic language. Before you know it, You run into the initially paradoxic behavior of asynchronous programming. Trying to chain diffrent asynchronous functions results in nested callbacks. We all get to a point we&amp;rsquo;ve written a program and found ourselves entombed in our own Pyramid of Doom.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>the point of promises</title>
+      <link>http://cultofmetatron.io/post/the-point-of-promises/</link>
+      <pubDate>Wed, 02 Mar 2016 00:06:38 -0500</pubDate>
+      
+      <guid>http://cultofmetatron.io/post/the-point-of-promises/</guid>
+      <description>&lt;p&gt;You&amp;rsquo;ve learned the basics of javascript. Hell, I dare say you&amp;rsquo;ve probably squeezed out a first project. I&amp;rsquo;m willing to bet that for most of you, the idea of asynchronous code still seems like magic.&lt;/p&gt;
+
+&lt;p&gt;True enough, javascript&amp;rsquo;s event loop model of execution is strange and fantastical when you are first learning it and downright aggravating when you suddenly realize that you have a list of filenames. You need to load them all up and run another function with the contents of each respective file.&lt;/p&gt;
+
+&lt;p&gt;Need to do this with two? Easy.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

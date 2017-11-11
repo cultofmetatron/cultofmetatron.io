@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Auth0 on Phoenix - Basic Configuration</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="" />
+  <meta name="description" content="Today I&amp;rsquo;m documenting the process of setting up Auth0 and webpack2 on a newly created Phoenix project " />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="Auth0 on Phoenix - Basic Configuration" />
+    <meta name="twitter:description" content="Today I&amp;rsquo;m documenting the process of setting up Auth0 and webpack2 on a newly created Phoenix project " />
+    <meta name="twitter:image" content="http://cultofmetatron.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://cultofmetatron.io/post/auth0-on-phoenix-p1/" />
+<link rel="alternative" href="/index.xml" title="IO.blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="IO.blog" />
+<meta name="msapplication-tooltip" content="IO.blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+    
+    
+    <h2 class="title"><a href="/">IO.blog</a></h2>
+    
+    <p class="subtitle"></p>
+    <button class="menu-toggle" type="button">
+      <span class="icon icon-menu"></span>
+    </button>
+    <nav class="site-menu collapsed">
+      <h2 class="offscreen">Main Menu</h2>
+      <ul class="menu-list">
+        
+        
+        <li class="menu-item" ><a href="/post">Posts</a></li>
+        
+        
+          <li class="menu-item "><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="social-menu collapsed">
+      <h2 class="offscreen">Social Networks</h2>
+      <ul class="social-list">
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        <li class="social-item">
+          <a href="/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+        </li>
+  
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Auth0 on Phoenix - Basic Configuration</h1>
+      <p class="post-meta">@ · Mar 1, 2017 · 3 min read</p>
+    </header>
+    <article class="post-content"><p>Today I&rsquo;m documenting the process of setting up <a href="https://auth0.com/">Auth0</a> and <a href="https://webpack.js.org/">webpack2</a> on a newly created <a href="http://www.phoenixframework.org/">Phoenix</a> project
+</p>
+
+<h2 id="creating-the-project">creating the project</h2>
+
+<p>Create the project by running the generator</p>
+
+<pre><code>
+Mix phoenix.new MyApp
+
+</code></pre>
+
+<blockquote>
+<p>Do not use &ndash;no-brunch. We&rsquo;ll remove that manually.</p>
+</blockquote>
+
+<h2 id="webpack-setup">Webpack Setup</h2>
+
+<p>I&rsquo;m basing the webpack on an earlier publication by <a href="http://matthewlehner.net/using-webpack-with-phoenix-and-elixir/">Matthew Lehner</a>. His writeup is excellent but I noticed a few breaking changes trying to get webpack2 to work.</p>
+
+<p>The first step is to remove the brunch configuration.</p>
+
+<pre><code>rm brunch-config.js
+
+</code></pre>
+
+<p>Next we install Webpack2 as well as our presets.</p>
+
+<pre><code>
+npm install --save-dev webpack babel-core babel-loader 
+npm install --save-dev babel-preset-es2015 babel-preset-es2016
+
+</code></pre>
+
+<blockquote>
+<p>optionally, you can include</p>
+</blockquote>
+
+<pre><code>npm install --save-dev babel-preset-es2017
+npm install --save-dev babel-preset-react
+</code></pre>
+
+<p>Next, create webpack.config.js at the top level of your application.</p>
+
+<pre><code class="language-javascript">let path = require('path');
+
+module.exports = {
+  entry: {
+    app: path.join(__dirname, &quot;web/static/js/app.js&quot;)
+  },
+  output: {
+    path: path.join(__dirname, &quot;priv/static/js&quot;),
+    filename: &quot;[name].js&quot;
+  },
+  resolve: {
+    modules: [ &quot;node_modules&quot;, __dirname + &quot;/web/static/js&quot; ]
+  },
+  module: {
+    loaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: &quot;babel-loader&quot;,
+      query: {
+        //add presets as necessary.
+        presets: [&quot;es2015&quot;, &quot;es2016&quot;] 
+      }
+    }]
+  }
+
+};
+
+</code></pre>
+
+<p>With that, You want to then add a watch script to npm. I also reccomend adding an <em>&ldquo;engines&rdquo;</em> property to lock down our node version.</p>
+
+<p>It should look something like this.</p>
+
+<pre><code class="language-json">{
+  &quot;repository&quot;: {},
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;scripts&quot;: {
+    &quot;watch&quot;: &quot;webpack --watch-stdin --progress --color&quot;
+  },
+  &quot;engines&quot;: {
+    &quot;npm&quot;: &quot;6.9.x&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;phoenix&quot;: &quot;file:../../deps/phoenix&quot;,
+    &quot;phoenix_html&quot;: &quot;file:../../deps/phoenix_html&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;babel-core&quot;: &quot;^6.23.1&quot;,
+    &quot;babel-loader&quot;: &quot;^6.3.0&quot;,
+    &quot;babel-preset-es2015&quot;: &quot;^6.22.0&quot;,
+    &quot;babel-preset-es2016&quot;: &quot;^6.22.0&quot;,
+    &quot;babel-preset-es2017&quot;: &quot;^6.22.0&quot;,
+    &quot;babel-preset-react&quot;: &quot;^6.23.0&quot;,
+    &quot;webpack&quot;: &quot;^2.2.1&quot;
+  }
+}
+</code></pre>
+
+<p>Next we want to remove the brunch watcher and add a webpack command to config/dev.exs</p>
+
+<pre><code class="language-elixir">
+config :web, MyApp,
+  http: [port: 4000],
+  debug_errors: true,
+  code_reloader: true,
+  check_origin: false,
+  watchers: [
+    npm: [&quot;run&quot;, &quot;watch&quot;, cd: Path.expand(&quot;../&quot;, __DIR__)]    
+  ]
+
+</code></pre>
+
+<blockquote>
+<p>The cd: Path.expand(&ldquo;../&rdquo;, <strong>DIR</strong>) ensures that our watcher will be run from the path of the root of our application. This will be very important if we run our phoenix app in an umbrella project.</p>
+</blockquote>
+
+<h2 id="auth0-setup">Auth0 Setup</h2>
+
+<p><a href="https://auth0.com/">Auth0</a> is an authentication as a service platform for secure login and user management. I&rsquo;m using it for all but a few future projects because its secure, supports multitenancy and multifactor login as well as built in social integration to google, facebook, twitter, linkedin and github without me having to put in any extra effort.</p>
+
+<p>In This post, I&rsquo;m going to cover a login through auth0&rsquo;s server. In a future post, I&rsquo;ll cover doing an auth0 oauth trhough our application server allowing us to setup sessions through guardian. For now, I will demonstrate how to just get the jwt token.</p>
+
+<p><em>auth0-lock</em> is the js file that contains their login widget. It can be installed via npm.</p>
+
+<pre><code>
+npm install --save auth0-lock
+
+</code></pre>
+
+<p>Now in your <em>app.js</em> add in the following code</p>
+
+<pre><code>import 'phoenix_html'
+import socket from &quot;./socket&quot;
+
+import Auth0Lock from 'auth0-lock';
+let credentials = {
+  domain: $YOUR_AUTH0_DOMAIN,
+  clientId: $YOUR_CLIENT_ID
+};
+
+const cid = credentials.clientId;
+const domain = credentials.domain;
+
+const lock = new Auth0Lock(cid, domain);
+
+lock.show();
+
+lock.on(&quot;authenticated&quot;, function(authResult) {
+  lock.getProfile(authResult.idToken, function(error, profile) {
+    if (error) {
+      // Handle error
+      return;
+    }
+    localStorage.setItem('id_token', authResult.idToken);
+    // Display user information
+    console.log(profile)
+    console.log('your jwt token is', authResult.idToken)
+  });
+});
+
+</code></pre>
+
+<p>Run <code>mix phoenix.server</code> and you should now see auth0 load up when you visit <em>localhost:4000</em> in your browser.</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="/tags/development"><span class="tag">Development</span></a></li>
+        
+          <li><a href="/tags/elixir"><span class="tag">Elixir</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        This post was published <strong>255</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 IO.blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>

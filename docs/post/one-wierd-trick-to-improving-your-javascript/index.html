@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>one wierd trick to improving your javascript</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="" />
+  <meta name="description" content="As the complexity of the projects I tackle as an engineer have increased over the years. I&amp;rsquo;ve noticed that while my capacity to understand project scope have increased linearly, The problems that I&amp;rsquo;ve had to deal with have increased exponentially in difficulty. The human mind can only hold so much complexity at a time. To rise to the needs of being a software engineer in the 21&amp;rsquo;st century, it takes a healthy dose of humilty to recognize my weaknesses and develop a methodology to handle the complexity. Without further ado, I introduce one of the most powerful axioms you can adopt in your own code. The extra thinking reqiuired might increase the time it takes to write the code. However, that will be more than paid back in the ability to read your own code and debug it later on.
+" />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="one wierd trick to improving your javascript" />
+    <meta name="twitter:description" content="As the complexity of the projects I tackle as an engineer have increased over the years. I&amp;rsquo;ve noticed that while my capacity to understand project scope have increased linearly, The problems that I&amp;rsquo;ve had to deal with have increased exponentially in difficulty. The human mind can only hold so much complexity at a time. To rise to the needs of being a software engineer in the 21&amp;rsquo;st century, it takes a healthy dose of humilty to recognize my weaknesses and develop a methodology to handle the complexity. Without further ado, I introduce one of the most powerful axioms you can adopt in your own code. The extra thinking reqiuired might increase the time it takes to write the code. However, that will be more than paid back in the ability to read your own code and debug it later on.
+" />
+    <meta name="twitter:image" content="http://cultofmetatron.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://cultofmetatron.io/post/one-wierd-trick-to-improving-your-javascript/" />
+<link rel="alternative" href="/index.xml" title="IO.blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="IO.blog" />
+<meta name="msapplication-tooltip" content="IO.blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+    
+    
+    <h2 class="title"><a href="/">IO.blog</a></h2>
+    
+    <p class="subtitle"></p>
+    <button class="menu-toggle" type="button">
+      <span class="icon icon-menu"></span>
+    </button>
+    <nav class="site-menu collapsed">
+      <h2 class="offscreen">Main Menu</h2>
+      <ul class="menu-list">
+        
+        
+        <li class="menu-item" ><a href="/post">Posts</a></li>
+        
+        
+          <li class="menu-item "><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="social-menu collapsed">
+      <h2 class="offscreen">Social Networks</h2>
+      <ul class="social-list">
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        <li class="social-item">
+          <a href="/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+        </li>
+  
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">one wierd trick to improving your javascript</h1>
+      <p class="post-meta">@ · May 2, 2016 · 7 min read</p>
+    </header>
+    <article class="post-content"><p>As the complexity of the projects I tackle as an engineer have increased over the years. I&rsquo;ve noticed that while my capacity to understand project scope have increased linearly, The problems that I&rsquo;ve had to deal with have increased exponentially in difficulty. The human mind can only hold so much complexity at a time. To rise to the needs of being a software engineer in the 21&rsquo;st century, it takes a healthy dose of humilty to recognize my weaknesses and develop a methodology to handle the complexity.
+
+Without further ado, I introduce one of the most powerful axioms you can adopt in your own code. The extra thinking reqiuired might increase the time it takes to write the code. However, that will be more than paid back in the ability to read your own code and debug it later on.</p>
+
+<blockquote>
+<p>Use constants instead of variables and avoid mutation as much as you can.</p>
+</blockquote>
+
+<p>At this point, you might be seriously questioning my sanity. As programmers, reassignment is something we do all the time. For instance, lets look at a basic loop in a factorial function.</p>
+
+<pre><code class="language-javascript">function factorial(n) {
+  var _i;
+  var acc = 1;
+  for (_i = 1; _i &lt;= n; _i++) {
+    acc = acc * _i;
+  }
+  return acc;
+}
+
+</code></pre>
+
+<p>This implementation relies heavily on mutation. In fact, if I were to debug this, I would have to trace through every single line of execution. However, mutation allows us to be lazy. By restricting mutation, we are forced to keep our functions as small as possible.</p>
+
+<p>Realistically, we need to have code that performs mutation. We can however think about a more general case. Getting rid of mutation makes you focus on the existential description rather than the rote instructions that get you there.</p>
+
+<p>Lets explore this further. A factorial n is the * operator applied on the range of numbers from 1 to n. Already, we can see that a list of numbers is involved.</p>
+
+<p>Thus we need some way of creating a range(i, n) function which creates a list of numbers starting from i to n.</p>
+
+<pre><code class="language-javascript">
+function range(i, n) {
+  var _i;
+  var arr = [];
+  for (_i = i; _i &lt;= n; _i++) {
+    arr.push(_i);
+  }
+  return arr;
+}
+
+</code></pre>
+
+<p>Now we have the ability to apply multiplication across all these numbers.</p>
+
+<pre><code class="language-javascript">
+function factorial(n) {
+  var acc = 1;
+  var _i;
+  var arr = range(1, n);
+  var _l = arr.length;
+  for (_i = 0; _i &lt; _l; _i++) {
+    acc = acc * arr[_l];
+  }
+  return acc;
+}
+
+</code></pre>
+
+<p>This isn&rsquo;t much better though, we just shifted the complexity now to retrieving values from the array. We are getting closer though. There&rsquo;s plenty of cases where we have a sequence of values where we want to reduce them into a single scalar value. Lets push the mutation step to that helper function.</p>
+
+<pre><code class="language-javascript">
+function reduce(fn, memo, arr) {
+  var acc = memo;
+  var _i;
+  var _l = arr.length;
+  for (_i = 0; _i &lt; _l; _i++) {
+    acc = fn(acc, arr[_i], _i);
+  }
+  return acc;
+}
+
+</code></pre>
+
+<p>As it turns out, we can also create range in terms of reduce.</p>
+
+<pre><code class="language-javascript">
+function range(i, n) {
+  var offset = n-i;
+  return reduce(function(memo, elem, index) {
+    var newArray = memo.slice();
+    newArray.push(index + i);
+    return newArray;
+  }, [], Array(offset + 1));
+}
+
+</code></pre>
+
+<p>With these two cases taken care of, we can express factorial far more succinctly.</p>
+
+<pre><code class="language-javascript">
+function factorial(n) {
+  return reduce((a, b) =&gt; a * b, 1, range(1, n));
+};
+
+</code></pre>
+
+<p>Not only is our factorial much clearer, We now have two helper functions that we can reuse throughout the codebase.
+Lets say we want to create something even crazier. Lets say we want to express the sum of the factorials from 0 to n.</p>
+
+<pre><code class="language-javascript">function sumofFactorials(n) {
+  var factorials = reduce(function(memo, element) {
+    var newArray = memo.slice();
+    newArray.push(factorial(element));
+    return newArray;
+  }, [], range(0, n));
+  return reduce((memo, element) =&gt; memo + element, 0, factorials)
+}
+
+</code></pre>
+
+<p>Of course you might see by now that there are a lot of cases where you simply want to take an array and project a function over every value of the array and return a new array.</p>
+
+<p>Array has a method called map. We can create our own using reduce.</p>
+
+<pre><code class="language-javascript">
+function map(fn, arr) {
+  return reduce(function(memo, element, index) {
+    var newArray = memo.slice();
+    newArray.push(fn(element, index));
+    return newArray;
+  }, [], arr);
+}
+
+</code></pre>
+
+<p>Now we can make our sumofFactorials even more concise.</p>
+
+<pre><code class="language-javascript">
+sumofFactorials(n) {
+  return reduce(
+    //es6 fat arrow syntax
+    (memo, elem, idx) =&gt; { return memo + elem; },
+    0,
+    map(factorial, range(0,n)));
+}
+
+</code></pre>
+
+<h3 id="getting-rid-of-loops-entirely-with-babel">Getting rid of loops entirely with babel</h3>
+
+<p>So far, we&rsquo;ve been moving around the mutation step into smaller helper functions. In some languages like haskell, loops simply don&rsquo;t exist as a language construct. How is iteration accomplished? They use recursion!</p>
+
+<p>Most purely functional languages support a <em>tail recursion</em>. This means that if the function returns the recursive call as the last statement, the compiler knows to unwind it into a simple loop and perform a mutation behind the scenes for extra performance.</p>
+
+<p>Javascript in browsers and node.js currently don&rsquo;t support this. However, we can still take advantage using the <a href="https://babeljs.io/">Babel.js</a> transpiler. In addition, we can now take advantage of the <em>const</em> keyword to alert us if we inadvertently reassign a variable.</p>
+
+<p>Its important to note that Babel can only perform the optimization on functions declared using C-style declaration.</p>
+
+<pre><code class="language-javascript">
+function factorial(n) {
+  function tailFactorial(acc, i , n) {
+    if (i === n) {
+      return acc * n;
+    } else {
+      return tailFactorial(acc * i, i++, n);
+    }
+  };
+  return tailFactorial(1, 1, n);
+}
+
+</code></pre>
+
+<p>Remember, the recursive call MUST be the last thing returned.</p>
+
+<pre><code class="language-javascript">
+/*
+  this will not be optimized and sufficiently large
+  values of n will result in a stack overflow
+*/
+function factorial(n) {
+  function tailFactorial(acc, i , n) {
+    if (i === n) {
+      return acc * n;
+    } else {
+      return tailFactorial(acc * i, i++, n);
+    }
+  };
+  /*that extra (* 1) forces the interpreter
+    to retain the stack frame. */
+  return tailFactorial(1, 1, n) * 1;
+}
+
+</code></pre>
+
+<p>Earlier, we pushed all the looping logic to the reduce function. Lets replace it with a tail recursive version.</p>
+
+<pre><code class="language-javascript">function reduce(fn, memo, arr) {
+  function reducer(fn, memo, arr, index) {
+    return (arr.length === 0) ?
+      memo : reducer(fn,
+                     fn(memo, arr[0], index ),
+                     arr.slice(1),
+                     index + 1);
+  }
+  return reducer(fn, memo, arr, 0); // BOOSH
+}
+
+</code></pre>
+
+<p>And now we&rsquo;ve effectively eliminated all mutation in our code.</p>
+
+<h3 id="less-moving-parts-better-code">Less Moving parts =&gt; Better code</h3>
+
+<p>Already you can see that by observing the rule of avoiding mutation, we have less moving parts throughout the code. If you run into a bug, its as simple as exploring the values through the stack trace to deterime where a potential bug might reside. My own experience shows that 10% of your time is spent writing the first version of the code. The rest of the time is spent debugging and refactoring this code.</p>
+
+<p>As I&rsquo;ve demonstrated, simply following the rule of avoiding mutation and variable reassignment. You as a programmer are forced to write better abstractions that reduce the signal to noise ratio of your code.</p>
+
+<p>Unfortunately, the native javascript data types do not lend themselves well to being used in an immutable style. This leads to the explicit copying of structures as we pass through the stack frame. Why copy these structures in the first place? Is it worth the extra hit to memory? I would argue that it is in most cases because we can by default avoid a multitude of errors.</p>
+
+<p>In practice it helps to use a library like <a href="https://facebook.github.io/immutable-js/">Immutable.js</a>.  It guarantees that all modifications return new copies of the structure. If passed into two diffrent functions, you can be certain the operations on the structure in one function will not affect the outcome of the other function.</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="/tags/development"><span class="tag">Development</span></a></li>
+        
+          <li><a href="/tags/javascript"><span class="tag">Javascript</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        This post was published <strong>558</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 IO.blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>

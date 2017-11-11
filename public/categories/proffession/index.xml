@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Proffession on My New Hugo Site</title>
+    <link>http://example.org/categories/proffession/</link>
+    <description>Recent content in Proffession on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Mar 2017 00:49:12 -0500</lastBuildDate>
+    
+	<atom:link href="http://example.org/categories/proffession/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About Me</title>
+      <link>http://example.org/about/</link>
+      <pubDate>Thu, 02 Mar 2017 00:49:12 -0500</pubDate>
+      
+      <guid>http://example.org/about/</guid>
+      <description>hi, I&amp;rsquo;m Peter de Croos.
+I&amp;rsquo;m a software engineer. I&amp;rsquo;ve worked at startups in the SF Bay area for the last 5 years and now I&amp;rsquo;m a freelancer.
+I look at every new project as something to learn. I started with backbonejs and moved on to nodejs. When I returned to frontend work, I built systems with angular and reactjs.
+These days, My development tools of choice are elixir and react/redux or turbolinks for the frontend.</description>
+    </item>
+    
+  </channel>
+</rss>

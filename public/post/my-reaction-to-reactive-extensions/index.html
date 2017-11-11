@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>my reaction to reactive extensions</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="" />
+  <meta name="description" content="Every javascript programmer is on their own hero&amp;rsquo;s journey to mastery.
+It begins with the basic language. Before you know it, You run into the initially paradoxic behavior of asynchronous programming. Trying to chain diffrent asynchronous functions results in nested callbacks. We all get to a point we&amp;rsquo;ve written a program and found ourselves entombed in our own Pyramid of Doom.
+" />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="my reaction to reactive extensions" />
+    <meta name="twitter:description" content="Every javascript programmer is on their own hero&amp;rsquo;s journey to mastery.
+It begins with the basic language. Before you know it, You run into the initially paradoxic behavior of asynchronous programming. Trying to chain diffrent asynchronous functions results in nested callbacks. We all get to a point we&amp;rsquo;ve written a program and found ourselves entombed in our own Pyramid of Doom.
+" />
+    <meta name="twitter:image" content="http://cultofmetatron.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://cultofmetatron.io/post/my-reaction-to-reactive-extensions/" />
+<link rel="alternative" href="/index.xml" title="IO.blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="IO.blog" />
+<meta name="msapplication-tooltip" content="IO.blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+    
+    
+    <h2 class="title"><a href="/">IO.blog</a></h2>
+    
+    <p class="subtitle"></p>
+    <button class="menu-toggle" type="button">
+      <span class="icon icon-menu"></span>
+    </button>
+    <nav class="site-menu collapsed">
+      <h2 class="offscreen">Main Menu</h2>
+      <ul class="menu-list">
+        
+        
+        <li class="menu-item" ><a href="/post">Posts</a></li>
+        
+        
+          <li class="menu-item "><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="social-menu collapsed">
+      <h2 class="offscreen">Social Networks</h2>
+      <ul class="social-list">
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        <li class="social-item">
+          <a href="/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+        </li>
+  
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">my reaction to reactive extensions</h1>
+      <p class="post-meta">@ · Apr 2, 2016 · 4 min read</p>
+    </header>
+    <article class="post-content"><p>Every javascript programmer is on their own hero&rsquo;s journey to mastery.</p>
+
+<p>It begins with the basic language. Before you know it, You run into the initially paradoxic behavior of asynchronous programming. Trying to chain diffrent asynchronous functions results in nested callbacks. We all get to a point we&rsquo;ve written a program and found ourselves entombed in our own Pyramid of Doom.</p>
+
+<p>Escaping this nested hell of callbacks results in learning about helper libraries like async. We start using event emitters which allow us to pass data between diffrent parts of the system in a decoupled fashion.
+
+However, There is a problem with callbacks and event emitters. In functional programming, functions perform no side effects and systems are statefree. An asycnhronous function invariably relies on the existence of state. This is anti-functional. This makes unit testing and breaking programs into smaller units, which are easier to reason about, much harder.</p>
+
+<p>From functional programming, The Promise abstraction brought a composable interface for working with asynchronous functions. Now, an asyhcronous function can return an object immediatly that provides an interface for composing values on data that did not yet exist. We also get ways of propagating errors if they occurred.</p>
+
+<pre><code class="language-javascript">function() {
+  return doSomething()
+  	.then(function(something) {
+    	tryThis(something)
+    })
+    .catch(function(err) {
+    	handleError(err)
+    });
+});
+
+</code></pre>
+
+<p>Unfortunatly, Promises only cover one shot asynchronous values. For sequences of data, most engineers fallback to event emitters.</p>
+
+<p>Meanwhile, in academia, there&rsquo;s been research on an interesting new paradigm called &ldquo;functional reactive programming.&rdquo; It was created as a way to resolve the seemingly dialectically opposed views of imperative and functional programming.</p>
+
+<p>Rx.js is a library for functional reactive programming in javascript backed by Microsoft.  The more I use it, the more I realize that this is the way we should all be coding.</p>
+
+<p>Reactive programming is the idea that the the result of the computation in some way should take the initiative of passing its values to all dependencies on that value. In Rx.js, data is organized around the <strong>Observable</strong>.</p>
+
+<p>The Observable is a box like object that encapulates a stream of data for an associated event. For all intents and purposes, you can imagine its an array where values get pushed in over time. You can chain callbacks into it to return new Observable that reflect a change to the Observable. It allows you to model the flow of your program the way you would model array transforms in lodash or underscore.</p>
+
+<p>More importantly, like Promises, Observables can be composed. The browser has a &lsquo;keydown&rsquo; event and a &lsquo;keyup&rsquo; event. What if I wanted to register a key push and release event?</p>
+
+<p>Here&rsquo;s a naive first try you might recognize.</p>
+
+<pre><code class="language-javascript">$(document).on('keydown', function(ev) {     	  
+  $(document).on('keyup', function() {
+    console.log('keyup')
+    doSomething();
+    $(document).off('keyup');
+  });
+});
+</code></pre>
+
+<p>Of course its incredibly naive. What if there are multiple handlers on document&rsquo;s &lsquo;keyup&rsquo;? the complexity of trying to coordinate reactions to chains of multiple events only compounds.</p>
+
+<p>Observables make this a piece of cake.</p>
+
+<pre><code class="language-javascript">var Rx = require('rx');
+var keyupStream = Rx.Observable.fromEvent(document, 'keyup');
+
+var keydownStream = Rx.Observable.fromEvent(document, 'keydown');
+
+var keyPressStream = keydownStream.sample(keyupStream)
+  .subscribe(doSomething, onError);
+</code></pre>
+
+<p>By using the Rx convenience method, we can get an Observable for the event in which a user pushes down on a key and releases. When we <strong>subscribe()</strong> to it, events coming down percolate to the callback we provide. the second argument is passed any errors that come up.</p>
+
+<p>We can do so much more though. What if we only want a keypress for the enter key? and we want to modify the data being passed to a string that we can look up in a table somewhere else in our system?</p>
+
+<pre><code class="language-javascript">var enterKey = 13 //the charcode.
+keydownStream.sample(keyupStream)
+	.filter(function(ev) {
+    	return ev.keyCode === enterKey //c
+    })
+    .map(function(ev) {
+    	return ev.keyCode
+    })
+    .subscribe(doSomething, onError);
+</code></pre>
+
+<p>It doesn&rsquo;t take much to see how this abstraction can expand to cover very complex interactions.</p>
+
+<p>Say you want a stream for the velocity vector of the mousemove. Not a very easy thing to do generally, you have to sample the last two mouse interactions, grab the positions and compute the dy and dx.</p>
+
+<p>Using a few more methods on <a href="https://github.com/Reactive-Extensions/RxJS/blob/master/doc/api/core/observable.md">Observable.</a> This is pretty simple.</p>
+
+<pre><code class="language-javascript">var mouseMove = Rx.Observable.fromEvent(document, 'mousemove');
+
+mouseMove
+  .map(function(ev) {
+    return {
+      x: ev.clientX,
+      y: ev.clientY
+    };
+  })
+  .pairwise(2)
+  .map(function(polls) {
+    var pos1 = polls[0];
+    var pos2 = polls[1];
+    return {
+      x: pos2.x - pos1.x,
+      y: pos2.y - pos1.y
+    }
+  })
+  .subscribe(function(ev) {
+    console.log(ev.x, ev.y)
+  }, function(err) {
+    console.log(err);
+  });
+</code></pre>
+
+<p>Now everytime I move a cursor, a pairwise velocity vector prints out. I can see interesting applications applied to interactions like <a href="http://bjk5.com/post/44698559168/breaking-down-amazons-mega-dropdown">Amazon&rsquo;s dropdown menu.</a> Everyone is moving to react.js. Why not have react views be connected to data flowing in over composable event streams?</p>
+
+<p>There&rsquo;s alot of rethinking about how we have to organize and write our apps to use Rx but the more I use it, the more I&rsquo;m convinced that this is the future.</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="/tags/development"><span class="tag">Development</span></a></li>
+        
+          <li><a href="/tags/javascript"><span class="tag">Javascript</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        This post was published <strong>588</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 IO.blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>

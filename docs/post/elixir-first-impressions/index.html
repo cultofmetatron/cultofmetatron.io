@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Elixir first impressions</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="" />
+  <meta name="description" content="            To start a new project    Built in data structures case and cond     Software engineering is a game of tradeoffs. Both for building systems that serve our users with reliability and cost that keeps us in buisness. I&amp;rsquo;ve delved into learning Elixir as a new toolkit for developing software and experiences with more reliablity and less downtime. Elixir is a langugae that runs on top of the Erlang VM. While still young for a langugae, it has the benefit of leveraging the Erlang platform; a best of breed high performance system developed at Ericson to run cellphone and telecom operations running with minimal downtime.
+" />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@gohugoio" />
+    <meta name="twitter:title" content="Elixir first impressions" />
+    <meta name="twitter:description" content="            To start a new project    Built in data structures case and cond     Software engineering is a game of tradeoffs. Both for building systems that serve our users with reliability and cost that keeps us in buisness. I&amp;rsquo;ve delved into learning Elixir as a new toolkit for developing software and experiences with more reliablity and less downtime. Elixir is a langugae that runs on top of the Erlang VM. While still young for a langugae, it has the benefit of leveraging the Erlang platform; a best of breed high performance system developed at Ericson to run cellphone and telecom operations running with minimal downtime.
+" />
+    <meta name="twitter:image" content="http://cultofmetatron.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.30.2" />
+
+
+<link rel="canonical" href="http://cultofmetatron.io/post/elixir-first-impressions/" />
+<link rel="alternative" href="/index.xml" title="IO.blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="IO.blog" />
+<meta name="msapplication-tooltip" content="IO.blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.8/alt/video-js-cdn.min.css" />
+
+<link rel="stylesheet" href="/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.8/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.4/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+    
+    
+    <h2 class="title"><a href="/">IO.blog</a></h2>
+    
+    <p class="subtitle"></p>
+    <button class="menu-toggle" type="button">
+      <span class="icon icon-menu"></span>
+    </button>
+    <nav class="site-menu collapsed">
+      <h2 class="offscreen">Main Menu</h2>
+      <ul class="menu-list">
+        
+        
+        <li class="menu-item" ><a href="/post">Posts</a></li>
+        
+        
+          <li class="menu-item "><a href="/about/">About</a></li>
+        
+      </ul>
+    </nav>
+    <nav class="social-menu collapsed">
+      <h2 class="offscreen">Social Networks</h2>
+      <ul class="social-list">
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        
+  
+        <li class="social-item">
+          <a href="/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+        </li>
+  
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Elixir first impressions</h1>
+      <p class="post-meta">@ · Jan 2, 2017 · 14 min read</p>
+    </header>
+    <article class="post-content"><nav>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#to-start-a-new-project">To start a new project</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#built-in-data-structures">Built in data structures</a></li>
+<li><a href="#case-and-cond">case and cond</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+<p>Software engineering is a game of tradeoffs.
+Both for building systems that serve our users with reliability and cost that keeps us in buisness. I&rsquo;ve delved into learning Elixir as a new toolkit for developing software and experiences with more reliablity and less downtime.
+Elixir is a langugae that runs on top of the Erlang VM. While still young for a langugae, it has the benefit of leveraging the Erlang platform; a best of breed high performance system developed at Ericson to run cellphone and telecom operations running with minimal downtime.</p>
+
+<p>When was the last time you had to deal with maintence based outages for your cell phone?
+
+By leveraging the erlang VM, Elixir allows features like zero downtime, clean exception handling, featherweight vm threads that can take advatage of all cores on a cpu and hot code deployment. That last one is huge. I&rsquo;m a big fan of continuous integration. In a startup, being able to deliver features fast and load new code into an already running vm without having to take down the system, is a tautalogically undeniable advantage when reliablity is a huge part of your value added proposition. The only arguable con I&rsquo;ve encountered so far is the learning curve.</p>
+
+<p>Intrigued by the promise of reliability and shortened time to market at zero cost, I delved in. I wanted to first try the features of the core language without relying on the fancy concurrency primatives as I get used to the ruby like syntax so I dug into a toy problem I previously created a solution for in javascript.</p>
+
+<blockquote>
+<p>The complete project is available on github @<a href="https://github.com/cultofmetatron/elixir-lazermaze">elixir-lazermaze</a></p>
+</blockquote>
+
+<p>Given a Maze with a beam of light shining from somewhere in it. the maze has a length, width, a starting position and direction, and a set of mirrors oriented in either &lsquo;\&rsquo; or &lsquo;/&rsquo;, return the number of squares traversed and at what location does the beam of light leave the maze.</p>
+
+<p>For example, the file <em>basics.dat</em>,</p>
+
+<pre><code>5 6
+1 4 E
+3 4 /
+3 0 /
+1 2 \
+3 2 \
+4 3 \
+</code></pre>
+
+<p>would visually be represented using an xy access starting from the top left.</p>
+
+<pre><code>+ 0 1 2 3 4
+0       / 
+1
+2   \   \
+3         \ 
+4   E   /  
+5
+</code></pre>
+
+<p>One particular edge case to be aware of is cycles. If the beam finds itself cycling between several mirrors reapeatedly, it will never exit the maze and we should return an error. The easiest way to check for this is to check the path if the log of previous squares already contains the square. To make this work, we need to store the direction of the beam at each point.</p>
+
+<pre><code>let path be an collection
+while lookahead(position, direction) is not out of bounds
+	1. if there is a mirror here, update the direction
+    2. if the current position is already in the path 
+       with the current direction, break the loop and return failure
+	2. add the current position to the path
+    3. update the position to the next position
+if lookahead(position, direction) is not out of bounds
+	return the count of the path and the current position
+    
+</code></pre>
+
+<p>Mix is the build tool used by the elixir community. its basicly some kind of well put together hybrid of npm and gulp/broccolii/grunt.</p>
+
+<h6 id="to-start-a-new-project">To start a new project</h6>
+
+<pre><code class="language-bash">mix new mirrormaze
+</code></pre>
+
+<p>This will create a project tree with a folder for tests and your source code called &ldquo;lib&rdquo;. Inside teh lib folder, there is a mirrormaze.ex. for now we need to write a loader that can pull in the data from the input files and convert it into a data structure that elixir can use.</p>
+
+<p>Create a file in lib called <em>maze_loader.ex</em></p>
+
+<pre><code class="language-elixir">defmodule MazeLoader do
+	
+end
+
+</code></pre>
+
+<p>First I needed method <strong>load_raw</strong> that would return a file given a pathname.</p>
+
+<pre><code class="language-elixir">
+defmodule MazeLoader do
+	def load_raw(file_path) do
+    	{:ok, file} = File.read file_path
+    	file
+    end
+end
+
+</code></pre>
+
+<p>Methods in elixir are declared using def or defp in the case of private methods.</p>
+
+<p>Interestingly, assignment in elixir isn&rsquo;t quite the same as it is in javascript. in javascript, the right hand side is strictly evaluated and the result is assigned to the variable on the left hand side. Elixir instead implements a assignment as a series of constrains for which the runtime will either find a means of declaring values that is valid or throw an error.</p>
+
+<p><strong>File.read</strong> takes a file_path and returns a <em>tuple</em> containing a keyword indicating the status and the contents of the file. Because of this constraint solving property, we can destructure the left hand side to be a tuple.</p>
+
+<p>By using <strong>:ok</strong> in the first paramater, we are constraining the value returned from the read to a tuple with :ok as the first element. Otherwise, throw an error. This seems to be a common idiom in elixir.</p>
+
+<p>If successful, the second paramater is assigned to <em>file</em>. The last statement in a method is implicitly returned like in ruby so by putting file after, we make the method return the file contents while making it throw an error if the file is not found.</p>
+
+<p>The testing harness is already set up by mix. in the test directory, I create maze_loader_test.exs. The exs files are elixir scripts that skip coompilation.</p>
+
+<pre><code class="language-elixir"># test/maze_loader_test.exs
+defmodule MazeLoaderTest do
+  # this tests the maze loading components
+  use ExUnit.Case
+  test &quot;it loads the raw file&quot; do
+    file = MazeLoader.load_raw(&quot;./samples-data/basic.dat&quot;)
+    file_contents = &quot;5 6\n1 4 E\n3 4 \/\n3 0 \/\n1 2 \\\n3 2 \\\n4 3 \\\n&quot;
+    assert file == file_contents
+  end
+end
+
+</code></pre>
+
+<p>To run the tests, run <code>mix test</code></p>
+
+<p>Now that we have the raw contents, we have to convert it to a native elixir data structure.</p>
+
+<h3 id="built-in-data-structures">Built in data structures</h3>
+
+<p>Elixir data structures are very similar to the immutable types found in clojure. The collection modules like Enum follow a protocol based approach for operating on them. in practice, this means the api exposes a function that can operate on several data structures.</p>
+
+<p>The main structures to know of are map %{}, tuple {} and list []</p>
+
+<pre><code class="language-elixir">iex(1)&gt; a_tuple = {1, 2, 4}
+{1, 2, 4}
+iex(2)&gt; a_list = [1, 2, 3]
+[1, 2, 3]
+iex(3)&gt; a_map = %{:foo =&gt; &quot;bar&quot;}
+%{foo: &quot;bar&quot;}
+</code></pre>
+
+<p>Tuples are static size. individual elements are accessed using <strong>elem()</strong>
+<code>elem({1, 2}, 1) =&gt; 2</code></p>
+
+<p>lists can be broken into a head and a tail but they can also be destructured using <code>[head | rest]</code>.</p>
+
+<pre><code class="language-elixir">iex(1)&gt; list1 = [1, 2, 3, 4]
+[1, 2, 3, 4]
+iex(2)&gt; list2 = [ 0 | list1 ]
+[0, 1, 2, 3, 4]
+iex(3)&gt; [first | [second | rest]] = list2
+[0, 1, 2, 3, 4]
+iex(4)&gt; first
+0
+iex(5)&gt; second
+1
+iex(6)&gt; rest
+[2, 3, 4]
+iex(7)&gt; hd(list1)
+1
+iex(8)&gt; tl(list1)
+[2, 3, 4]
+
+</code></pre>
+
+<p>maps are key values. the keys can be any value.</p>
+
+<pre><code>iex(1)&gt; map1 = %{ :foo =&gt; 'bar', &quot;buz&quot; =&gt; &quot;cola&quot;, 3 =&gt; &quot;red&quot; }
+%{3 =&gt; &quot;red&quot;, :foo =&gt; 'bar', &quot;buz&quot; =&gt; &quot;cola&quot;}
+iex(2)&gt; map1[:foo]
+'bar'
+iex(3)&gt; map1[&quot;buz&quot;]
+&quot;cola&quot;
+iex(4)&gt; map1[3]
+&quot;red&quot;
+</code></pre>
+
+<p><em>basic.dat</em> contains the string <code>&quot;5 6\n1 4 E\n3 4 \/\n3 0 \/\n1 2 \\\n3 2 \\\n4 3 \\\n&quot;</code>. MazeLoader.extract_data() should get something that looks like this.</p>
+
+<pre><code class="language-elixir">%{
+    size: %{length: 5, width: 6},
+    start: %{direction: &quot;E&quot;, x: 1, y: 4},
+    mirrors: [
+      %{type: &quot;/&quot;, x: 3, y: 4},
+      %{type: &quot;/&quot;, x: 3, y: 0},
+      %{type: &quot;\\&quot;, x: 1, y: 2},
+      %{type: &quot;\\&quot;, x: 3, y: 2},
+      %{type: &quot;\\&quot;, x: 4, y: 3}
+    ]
+}
+</code></pre>
+
+<p>Since we know what the output should be, lets start with the test</p>
+
+<pre><code># test/maze_loader_test.exs
+defmodule MazeLoaderTest do
+  # this tests the maze loading components
+  use ExUnit.Case
+
+  ...
+
+  test &quot;it returns a processed file&quot; do
+    file = MazeLoader.load_raw(&quot;./samples-data/basic.dat&quot;)
+    data = MazeLoader.extract_data(file)
+    assert data == %{
+      size: %{length: 5, width: 6},
+      start: %{direction: &quot;E&quot;, x: 1, y: 4},
+      mirrors: [
+        %{type: &quot;/&quot;, x: 3, y: 4},
+        %{type: &quot;/&quot;, x: 3, y: 0},
+        %{type: &quot;\\&quot;, x: 1, y: 2},
+        %{type: &quot;\\&quot;, x: 3, y: 2},
+        %{type: &quot;\\&quot;, x: 4, y: 3}
+      ]
+    }
+  end
+
+end
+
+</code></pre>
+
+<p>Notice how data can be equality checked against the object literal? In Elixir, there is no pass by reference.  The consequence is that large complex data structures can be compared by deep value with a simple == statement. In javascript, you would have to use a library like <a href="https://facebook.github.io/immutable-js/">immutablejs</a> to write code like this. The downside is that it is not idiomatic to the community the way immutable types are in elixir. Elixir wins big here in my book.</p>
+
+<pre><code class="language-elixir">defmodule MazeLoader do
+  def extract_data(contents) do
+    Enum.map(
+    	Enum.filter(
+        	String.split(contents, &quot;\n&quot;), fn(str) -&gt; str !== &quot;&quot; end), 
+       	fn(str)-&gt; String.split(str, ~r/\s/) end)
+    %{
+      size: &quot;Todo&quot;,
+      start: &quot;Todo&quot;,
+      mirrors: &quot;Todo&quot;
+    }
+  end
+end
+</code></pre>
+
+<p>In javascript, we can use lodash&rsquo;s chain() operator to write this in an easier to follow way.</p>
+
+<pre><code class="language-js">  let data = _.chain(contents.split(&quot;\n))
+    .filter((str) =&gt; str !== &quot;&quot;)
+    .map((str) =&gt; str.split(/\s/))
+    .value()
+
+</code></pre>
+
+<p>Elixer has pipe operator <code>|&gt;</code> which enables the same functionality for any function.
+<strong>extract_data()</strong> can instead be written as&hellip;</p>
+
+<pre><code class="language-elixir">defmodule MazeLoader do
+  def extract_data(contents) do
+    data = contents
+      |&gt; String.split(&quot;\n&quot;)
+      |&gt; Enum.filter(fn(str) -&gt; str !== &quot;&quot; end) # remove empty newline without data
+      |&gt; Enum.map(fn(str)-&gt; String.split(str, ~r/\s/) end)
+    %{
+      size: &quot;Todo&quot;,
+      start: &quot;Todo&quot;,
+      mirrors: &quot;Todo&quot;
+    }
+  end
+end
+</code></pre>
+
+<p>The pipe operator is my new favorite operator. instead of thinking about about my code as a series of objects, I instead model it as a series of transformations with data from being piped along diffrent small methods.</p>
+
+<p>The <em>data</em> value should now equal&hellip;</p>
+
+<pre><code> [[&quot;5&quot;, &quot;6&quot;], [&quot;1&quot;, &quot;4&quot;, &quot;E&quot;], [&quot;3&quot;, &quot;4&quot;, &quot;/&quot;], [&quot;3&quot;, &quot;0&quot;, &quot;/&quot;],
+  [&quot;1&quot;, &quot;2&quot;, &quot;\\&quot;], [&quot;3&quot;, &quot;2&quot;, &quot;\\&quot;], [&quot;4&quot;, &quot;3&quot;, &quot;\\&quot;]]
+</code></pre>
+
+<pre><code class="language-elixir">defmodule MazeLoader do
+  # ...
+
+  # takes an array of mirrors and returns a list of mirrors with x, y and type
+  defp extract_mirrors([_ | [_ | []]]), do: []
+  defp extract_mirrors([_ | [_ | mirrors]]) do
+    Enum.map mirrors, fn(mirror) -&gt;
+      # elem(Integer.parse(hd(mirror)), 0)
+      %{
+        x: mirror |&gt; hd |&gt; Integer.parse |&gt; elem(0),
+        y: mirror |&gt; tl |&gt; hd |&gt; Integer.parse |&gt; elem(0),
+        type: mirror |&gt; tl |&gt; tl |&gt; hd
+      }
+    end
+  end
+
+  #takes the dimmensions
+  defp extract_dimension([dim | _ ]) do
+    %{ 
+      length: dim |&gt; hd |&gt; Integer.parse |&gt; elem(0),
+      width: dim |&gt; tl |&gt; hd |&gt; Integer.parse |&gt; elem(0)
+    }
+  end
+
+  # extracts the start point and direction
+  defp extract_start([_ | [ start | _ ]]) do
+    %{
+      x: start |&gt; hd |&gt; Integer.parse |&gt; elem(0),
+      y: start |&gt; tl |&gt; hd |&gt; Integer.parse |&gt; elem(0),
+      direction: start |&gt; tl |&gt; tl |&gt; hd
+    }
+  end
+  
+  def extract_data(contents) do
+    data = contents
+      |&gt; String.split(&quot;\n&quot;)
+      |&gt; Enum.filter(fn(str) -&gt; str !== &quot;&quot; end) # remove empty newline without data
+      |&gt; Enum.map(fn(str)-&gt; String.split(str, ~r/\s/) end)
+    %{
+      size: extract_dimension(data),
+      start: extract_start(data),
+      mirrors: extract_mirrors(data)
+    }
+  end
+  
+  @doc &quot;&quot;&quot;
+    Takes the file and returns a maze spec
+  &quot;&quot;&quot;
+  def load_file(file), do: file |&gt; load_raw |&gt; extract_data
+
+end
+</code></pre>
+
+<p><code>defp extract_mirrors([_ | [_ | []]])</code> matches to any list with two elemets and an empty or nonexistent list. This keeps type checking logic out of the body of the method. The second which is called if the first does not match can focus on its own specific case. This is a big win for keeping each method small.</p>
+
+<p>Now that we have the loader module, we create the maze module and a test for the solve method. Elixir does not have loops. Instead we have to use tail recursion.</p>
+
+<pre><code class="language-elixir">defmodule Maze do
+
+  # ...
+  
+  # starts with the basic maze and we track the position and path as we traverse
+  def solver(size, mirrors, direction, position, count, path) do
+    #IO.inspect({ size, mirrors, direction, position, count, path})
+    # is there a mirror here? if yes we must changed the position accordingly
+    new_direction = case get_mirror(position, mirrors) do
+      {:success, mirror} -&gt; update_direction(direction, mirror)
+      {:fail } -&gt; direction
+    end
+    next = next_position(position, new_direction)
+    # get the next position and check if its out of bounds
+    # Base case
+    cond do
+      # 1.  next position is out of bounds
+      out_of_bounds(size, next) -&gt;
+        {:ok, position, count}
+      # 2. next position is in the path with the same direction (infinite loop)
+      in_path?(path, position, direction) -&gt;
+        {:fail, &quot;cycle detected&quot;}
+      # Recursive step
+      # 1. call with next position,
+      true -&gt;
+        breadcrumb = { elem(position, 0), elem(position, 1), direction}
+        solver(size, mirrors, new_direction, next, count + 1, [breadcrumb | path])
+    end
+  end
+
+  def solve(maze) do
+    #size, mirrors, direction, position, count, path
+    size = { maze[:size][:width], maze[:size][:length] }
+    position = {maze[:start][:x], maze[:start][:y] }
+    direction = maze[:start][:direction]
+    solver(size, maze[:mirrors], direction, position, 0, [])
+  end
+
+end
+
+</code></pre>
+
+<p>The heart of our solver more or less follows the pseudocode. each recursive call passes along the updated data for iteration till a base case is recieved which causes the function to return.</p>
+
+<h3 id="case-and-cond">case and cond</h3>
+
+<p>This code introduces a few new langauge features, cond and case.</p>
+
+<pre><code class="language-elixir">new_direction = case get_mirror(position, mirrors) do
+      {:success, mirror} -&gt; update_direction(direction, mirror)
+      {:fail } -&gt; direction # direction has not changed
+    end
+</code></pre>
+
+<p><strong>case</strong> takes an expression and executes code associated with the first matching pattern. get mirror takes the position and the set of mirrors and returns a mirror if successful or a tuple with a fail. The case evaluates to the valuated output of the associated expression. All we need to do is write mirror to follow this contract.</p>
+
+<pre><code class="language-elixir">def get_mirror({x, y}, mirrors) do
+	# find_value returns the first truthy value retruned by the filtering callback.
+    # otherwise, it returns false
+    Enum.find_value(mirrors, fn(mirror) -&gt;
+      if (mirror[:x] == x &amp;&amp; mirror[:y] == y) do
+        { :success, mirror[:type] }
+      else
+        false
+      end
+    end) || { :fail }
+  end
+</code></pre>
+
+<p>Similarly, next_position and update_direction can be written to pattern match against directions which keeps switching code out of the function body.</p>
+
+<pre><code class="language-elixir">  #gives the next pointer on the screen
+  def next_position(position, direction \\ &quot;S&quot;)
+  def next_position({ x, y }, &quot;N&quot;), do: { x, y - 1 }
+  def next_position({ x, y }, &quot;S&quot;), do: { x, y + 1 }
+  def next_position({ x, y }, &quot;E&quot;), do: { x + 1, y }
+  def next_position({ x, y }, &quot;W&quot;), do: { x - 1, y }
+  
+  def update_direction(&quot;S&quot;, &quot;/&quot;),   do: &quot;W&quot;
+  def update_direction(&quot;S&quot;, &quot;\\&quot;),  do: &quot;E&quot;
+  def update_direction(&quot;N&quot;, &quot;/&quot;),   do: &quot;E&quot;
+  def update_direction(&quot;N&quot;, &quot;\\&quot;),  do: &quot;W&quot;
+  def update_direction(&quot;E&quot;, &quot;/&quot;),   do: &quot;N&quot;
+  def update_direction(&quot;E&quot;, &quot;\\&quot;),  do: &quot;S&quot;
+  def update_direction(&quot;W&quot;, &quot;/&quot;),   do: &quot;S&quot;
+  def update_direction(&quot;W&quot;, &quot;\\&quot;),  do: &quot;N&quot;
+</code></pre>
+
+<p>I&rsquo;d rather write unit tests for 4 pure single line functions. the cyclometric complexity is effectivly zero.</p>
+
+<p>Destructuring plays a major role in wringing out some increadibly succinct code.</p>
+
+<pre><code class="language-elixir">defmodule Maze do
+
+  #gives the next pointer on the screen
+  def next_position(position, direction \\ &quot;S&quot;)
+  def next_position({ x, y }, &quot;N&quot;), do: { x, y - 1 }
+  def next_position({ x, y }, &quot;S&quot;), do: { x, y + 1 }
+  def next_position({ x, y }, &quot;E&quot;), do: { x + 1, y }
+  def next_position({ x, y }, &quot;W&quot;), do: { x - 1, y }
+
+  def out_of_bounds({ l, w }, {x, y}) do
+    (x &gt;= l) || (y &gt;= w) || (x &lt; 0) || (y &lt; 0)
+  end
+
+  # given a set of mirrors, return the mirror type or fail
+  # { :success, &quot;/&quot; }
+  # { :fail }
+  def get_mirror({x, y}, mirrors) do
+    Enum.find_value(mirrors, fn(mirror) -&gt;
+      if (mirror[:x] == x &amp;&amp; mirror[:y] == y) do
+        { :success, mirror[:type] }
+      else
+        false
+      end
+    end) || { :fail }
+  end
+
+  def update_direction(&quot;S&quot;, &quot;/&quot;),   do: &quot;W&quot;
+  def update_direction(&quot;S&quot;, &quot;\\&quot;),  do: &quot;E&quot;
+  def update_direction(&quot;N&quot;, &quot;/&quot;),   do: &quot;E&quot;
+  def update_direction(&quot;N&quot;, &quot;\\&quot;),  do: &quot;W&quot;
+  def update_direction(&quot;E&quot;, &quot;/&quot;),   do: &quot;N&quot;
+  def update_direction(&quot;E&quot;, &quot;\\&quot;),  do: &quot;S&quot;
+  def update_direction(&quot;W&quot;, &quot;/&quot;),   do: &quot;S&quot;
+  def update_direction(&quot;W&quot;, &quot;\\&quot;),  do: &quot;N&quot;
+
+  # takes a list of position and returns true or false
+  def in_path?(path, {x, y}, direction) do
+    # get a count of the amount of previous positions 
+    # that match the current direction and path and return true if greater than 0
+    Enum.count(path, fn({x1, y1, dir1}) -&gt;
+      (x == x1 &amp;&amp; y == y1 &amp;&amp; direction == dir1)
+    end) &gt; 0
+  end
+
+  # starts with the basic maze and we track the position and path as we traverse
+  def solver(size, mirrors, direction, position, count, path) do
+    #IO.inspect({ size, mirrors, direction, position, count, path})
+    # is there a mirror here? if yes we must changed the position accordingly
+    new_direction = case get_mirror(position, mirrors) do
+      {:success, mirror} -&gt; update_direction(direction, mirror)
+      {:fail } -&gt; direction
+    end
+    next = next_position(position, new_direction)
+    # get the next position and check if its out of bounds
+    # Base case
+    cond do
+      # 1.  next position is out of bounds
+      out_of_bounds(size, next) -&gt;
+        {:ok, position, count}
+      # 2. next position is in the path with the same direction (infinite loop)
+      in_path?(path, position, direction) -&gt;
+        {:fail, &quot;cycle detected&quot;}
+      # Recursive step
+      # 1. call with next position,
+      true -&gt;
+        breadcrumb = { elem(position, 0), elem(position, 1), direction}
+        solver(size, mirrors, new_direction, next, count + 1, [breadcrumb | path])
+    end
+  end
+
+  @doc &quot;&quot;&quot;
+    takes a maze and solves it
+    
+    A maze is a map with a size, start and set of mirrors
+    maze = %{
+      size: %{length: 5, width: 6},
+      start: %{direction: &quot;S&quot;, x: 1, y: 4},
+      mirrors: [
+        %{type: &quot;/&quot;, x: 3, y: 4},
+        %{type: &quot;\&quot;, x: 3, y: 0},
+      ]
+    }
+  &quot;&quot;&quot;
+  def solve(maze) do
+    #size, mirrors, direction, position, count, path
+    size = { maze[:size][:width], maze[:size][:length] }
+    position = {maze[:start][:x], maze[:start][:y] }
+    direction = maze[:start][:direction]
+    solver(size, maze[:mirrors], direction, position, 0, [])
+  end
+
+end
+</code></pre>
+
+<p>So far, I&rsquo;m loving Elixir. The combination of smooth destructuring, immutable types and paramater matching has made for some seriosly clean code.</p></article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="/tags/development"><span class="tag">Development</span></a></li>
+        
+          <li><a href="/tags/elixir"><span class="tag">Elixir</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        This post was published <strong>313</strong> days ago, content in the post may be inaccurate, even wrong now, please take risk yourself.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 IO.blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script async src="//cdn.bootcss.com/video.js/6.2.8/alt/video.novtt.min.js"></script>
+<script async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+</script>
+<script type="text/x-mathjax-config">
+  // Fix <code> tags after MathJax finishes running. This is a
+  // hack to overcome a shortcoming of Markdown. Discussion at
+  // https://github.com/mojombo/jekyll/issues/199
+  MathJax.Hub.Queue(() => {
+    MathJax.Hub.getAllJax().map(v => v.SourceElement().parentNode.className += ' has-jax');
+  });
+</script>
+
+<script src="/js/bundle.js"></script>
+
+
+
+
+  </body>
+</html>

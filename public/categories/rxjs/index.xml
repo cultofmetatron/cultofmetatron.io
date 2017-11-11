@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rxjs on IO.blog</title>
+    <link>http://cultofmetatron.io/categories/rxjs/</link>
+    <description>Recent content in Rxjs on IO.blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Mar 2016 00:06:38 -0500</lastBuildDate>
+    
+	<atom:link href="http://cultofmetatron.io/categories/rxjs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>the point of promises</title>
+      <link>http://cultofmetatron.io/post/the-point-of-promises/</link>
+      <pubDate>Wed, 02 Mar 2016 00:06:38 -0500</pubDate>
+      
+      <guid>http://cultofmetatron.io/post/the-point-of-promises/</guid>
+      <description>&lt;p&gt;You&amp;rsquo;ve learned the basics of javascript. Hell, I dare say you&amp;rsquo;ve probably squeezed out a first project. I&amp;rsquo;m willing to bet that for most of you, the idea of asynchronous code still seems like magic.&lt;/p&gt;
+
+&lt;p&gt;True enough, javascript&amp;rsquo;s event loop model of execution is strange and fantastical when you are first learning it and downright aggravating when you suddenly realize that you have a list of filenames. You need to load them all up and run another function with the contents of each respective file.&lt;/p&gt;
+
+&lt;p&gt;Need to do this with two? Easy.
+&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

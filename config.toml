@@ -1,0 +1,5 @@
+baseURL = "http://cultofmetatron.io"
+languageCode = "en-us"
+title = "IO.blog"
+theme = "hugo-eltopo"
+publishDir = "docs"

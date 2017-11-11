@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Etheream on IO.blog</title>
+    <link>http://cultofmetatron.io/tags/etheream/</link>
+    <description>Recent content in Etheream on IO.blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Mar 2017 14:21:05 -0500</lastBuildDate>
+    
+	<atom:link href="http://cultofmetatron.io/tags/etheream/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Better living through blockchains - Intro</title>
+      <link>http://cultofmetatron.io/post/better-living-through-blockchains-p1/</link>
+      <pubDate>Tue, 07 Mar 2017 14:21:05 -0500</pubDate>
+      
+      <guid>http://cultofmetatron.io/post/better-living-through-blockchains-p1/</guid>
+      <description>&lt;p&gt;2 years ago, I bought 10 bitcoins at $134 each.
+A week later they shot up to $240.
+Naivly I flipped them and made a tidy thousand dollar profit.
+My initial glee had turned out to be one of my biggest regret as you might guess from the current valuation of $1.2k per bitcoin.
+Nevertheless, It cemented cryptocurrencies into the horizon of my view.&lt;/p&gt;
+
+&lt;p&gt;While Bitcoin gets most of the attention, Its only the tip of the iceburg.
+More disruptive is the potential enabled by the blockcahin in creating decentralized transaction.
+Bitcoin&amp;rsquo;s blockchain is limited in features and is oriented towards cryptocurrency.
+&lt;a href=&#34;https://www.ethereum.org/&#34;&gt;Etheream&lt;/a&gt; takes the ideas introduced by etheream and delivers a quantum leap in functionality.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
